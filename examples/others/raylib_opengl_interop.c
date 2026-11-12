@@ -28,7 +28,10 @@
 
 #include "raylib.h"
 
-#if defined(PLATFORM_DESKTOP) || defined(PLATFORM_DESKTOP_SDL) || defined(PLATFORM_DESKTOP_RGFW)
+#if defined(PLATFORM_APPLE_SWIFTUI) && defined(GRAPHICS_API_OPENGL_ES3)
+    #include <OpenGLES/ES3/gl.h>
+    #define GLSL_VERSION                300
+#elif defined(PLATFORM_DESKTOP) || defined(PLATFORM_DESKTOP_SDL) || defined(PLATFORM_DESKTOP_RGFW)
     #if defined(GRAPHICS_API_OPENGL_ES2)
         #include "glad_gles2.h"       // Required for: OpenGL functionality
         #define glGenVertexArrays glGenVertexArraysOES
@@ -111,7 +114,7 @@ int main(void)
     glBindVertexArray(0);
 
     // Allows the vertex shader to set the point size of each particle individually
-    #ifndef GRAPHICS_API_OPENGL_ES2
+    #if !defined(GRAPHICS_API_OPENGL_ES2) && !defined(GRAPHICS_API_OPENGL_ES3)
     glEnable(GL_PROGRAM_POINT_SIZE);
     #endif
 

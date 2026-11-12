@@ -534,6 +534,8 @@ const char *TextFormat(const char *text, ...); // Formatting of text with variab
     #include "platforms/rcore_drm.c"
 #elif defined(PLATFORM_ANDROID)
     #include "platforms/rcore_android.c"
+#elif defined(PLATFORM_APPLE_SWIFTUI)
+    #include "platforms/rcore_apple.c"
 #elif defined(PLATFORM_MEMORY)
     #include "platforms/rcore_memory.c"
 #else
@@ -608,6 +610,8 @@ void InitWindow(int width, int height, const char *title)
     TRACELOG(LOG_INFO, "Platform backend: NATIVE DRM");
 #elif defined(PLATFORM_ANDROID)
     TRACELOG(LOG_INFO, "Platform backend: ANDROID");
+#elif defined(PLATFORM_APPLE_SWIFTUI)
+    TRACELOG(LOG_INFO, "Platform backend: Apple SwiftUI");
 #elif defined(PLATFORM_MEMORY)
     TRACELOG(LOG_INFO, "Platform backend: MEMORY (No OS)");
 #else
@@ -890,7 +894,7 @@ void EndDrawing(void)
     if (automationEventRecording) RecordAutomationEvent();    // Event recording
 #endif
 
-#if !SUPPORT_CUSTOM_FRAME_CONTROL
+#if !SUPPORT_CUSTOM_FRAME_CONTROL && !defined(PLATFORM_APPLE_SWIFTUI)
     SwapScreenBuffer();                  // Copy back buffer to front buffer (screen)
 
     // Frame time control system
@@ -923,6 +927,9 @@ void EndDrawing(void)
     }
 #endif
 
+#if defined(PLATFORM_APPLE_SWIFTUI) && !SUPPORT_CUSTOM_FRAME_CONTROL
+    SwapScreenBuffer();
+#endif
     CORE.Time.frameCounter++;
 }
 
@@ -1049,8 +1056,14 @@ void EndTextureMode(void)
     rlMultMatrixf(MatrixToFloat(CORE.Window.screenScale)); // Apply screen scaling if required
 
     // Reset current fbo to screen size
+#if defined(PLATFORM_APPLE_SWIFTUI)
+    CORE.Window.currentFbo = AppleViewportSize();
+    rlSetFramebufferWidth(CORE.Window.render.width);
+    rlSetFramebufferHeight(CORE.Window.render.height);
+#else
     CORE.Window.currentFbo.width = CORE.Window.render.width;
     CORE.Window.currentFbo.height = CORE.Window.render.height;
+#endif
     CORE.Window.usingFbo = false;
 }
 
@@ -1087,7 +1100,16 @@ void BeginScissorMode(int x, int y, int width, int height)
 
     rlEnableScissorTest();
 
-#if defined(__APPLE__)
+#if defined(PLATFORM_APPLE_SWIFTUI)
+    if (!CORE.Window.usingFbo)
+    {
+        Vector2 scale = GetWindowScaleDPI();
+        Size viewport = AppleViewportSize();
+        rlScissor(CORE.Window.renderOffset.x/2 + (int)(x*scale.x),
+                  CORE.Window.renderOffset.y/2 + (int)(viewport.height - (y + height)*scale.y),
+                  (int)(width*scale.x), (int)(height*scale.y));
+    }
+#elif defined(__APPLE__)
     if (!CORE.Window.usingFbo)
     {
         Vector2 scale = GetWindowScaleDPI();
@@ -1826,9 +1848,21 @@ void TakeScreenshot(const char *fileName)
 
     // Apply content scaling if required
     Vector2 scale = { 1.0f, 1.0f };
+#if !defined(PLATFORM_APPLE_SWIFTUI)
     if (FLAG_IS_SET(CORE.Window.flags, FLAG_WINDOW_HIGHDPI)) scale = GetWindowScaleDPI();
+#endif
+
+#if defined(PLATFORM_APPLE_SWIFTUI)
+    GLint previousReadFramebuffer = 0;
+    glGetIntegerv(GL_READ_FRAMEBUFFER_BINDING, &previousReadFramebuffer);
+    glBindFramebuffer(GL_READ_FRAMEBUFFER, rlAppleDrawableFramebuffer);
+#endif
 
     unsigned char *imgData = rlReadScreenPixels((int)((float)CORE.Window.render.width*scale.x), (int)((float)CORE.Window.render.height*scale.y));
+#if defined(PLATFORM_APPLE_SWIFTUI)
+    glBindFramebuffer(GL_READ_FRAMEBUFFER, (unsigned int)previousReadFramebuffer);
+#endif
+
     Image image = { imgData, (int)((float)CORE.Window.render.width*scale.x), (int)((float)CORE.Window.render.height*scale.y), 1, PIXELFORMAT_UNCOMPRESSED_R8G8B8A8 };
 
     char path[MAX_FILEPATH_LENGTH] = { 0 };
@@ -4351,15 +4385,24 @@ void SetupViewport(int width, int height)
     CORE.Window.render.width = width;
     CORE.Window.render.height = height;
 
+#if defined(PLATFORM_APPLE_SWIFTUI)
+    Size viewport = AppleViewportSize();
+    rlViewport(CORE.Window.renderOffset.x/2, CORE.Window.renderOffset.y/2, viewport.width, viewport.height);
+#else
     // Set viewport width and height
     rlViewport(CORE.Window.renderOffset.x/2, CORE.Window.renderOffset.y/2, CORE.Window.render.width, CORE.Window.render.height);
+#endif
 
     rlMatrixMode(RL_PROJECTION);        // Switch to projection matrix
     rlLoadIdentity();                   // Reset current matrix (projection)
 
     // Set orthographic projection to current framebuffer size
     // NOTE: Configured top-left corner as (0, 0)
+#if defined(PLATFORM_APPLE_SWIFTUI)
+    rlOrtho(0.0f, (float)CORE.Window.screen.width, (float)CORE.Window.screen.height, 0.0f, 0.0f, 1.0f);
+#else
     rlOrtho(0.0f, (float)CORE.Window.render.width, (float)CORE.Window.render.height, 0.0f, 0.0f, 1.0f);
+#endif
 
     rlMatrixMode(RL_MODELVIEW);         // Switch back to modelview matrix
     rlLoadIdentity();                   // Reset current matrix (modelview)

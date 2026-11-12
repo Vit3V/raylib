@@ -1,0 +1,713 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+
+	};
+	objectVersion = 56;
+	objects = {
+		A594B16FC31958EB8752ED61 = {
+			isa = PBXFileReference;
+			path = libRaylibAppleHost.a;
+			explicitFileType = archive.ar;
+			includeInIndex = 0;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F1D1F6136EF0929F83C305F2 = {
+			isa = PBXFileReference;
+			path = Shared/AppleGameHost.m;
+			name = AppleGameHost.m;
+			sourceTree = SOURCE_ROOT;
+			lastKnownFileType = sourcecode.c.objc;
+		};
+		2D7A03A64DFE7B0EC52D9AC3 = {
+			isa = PBXBuildFile;
+			fileRef = F1D1F6136EF0929F83C305F2;
+		};
+		5CE226BD12252CED1305C27C = {
+			isa = PBXFileReference;
+			path = Shared/ContentView.swift;
+			name = ContentView.swift;
+			sourceTree = SOURCE_ROOT;
+			lastKnownFileType = sourcecode.swift;
+		};
+		0B3806A91AABDCA111FA04C2 = {
+			isa = PBXBuildFile;
+			fileRef = 5CE226BD12252CED1305C27C;
+		};
+		64D9992C1A2B768FE9D3C9AB = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D7A03A64DFE7B0EC52D9AC3,
+				0B3806A91AABDCA111FA04C2,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F4FB26B4A32E3F5A9B916CE = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43F31A343B057FCCA7D686A4 = {
+			isa = XCBuildConfiguration;
+			name = Debug;
+			buildSettings = {
+				PRODUCT_NAME = RaylibAppleHost;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Shared/AppleGameHost.h";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					GL_SILENCE_DEPRECATION,
+					GLES_SILENCE_DEPRECATION,
+				);
+				SKIP_INSTALL = YES;
+			};
+		};
+		580424D7D622287590C7CC0B = {
+			isa = XCBuildConfiguration;
+			name = Release;
+			buildSettings = {
+				PRODUCT_NAME = RaylibAppleHost;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Shared/AppleGameHost.h";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					GL_SILENCE_DEPRECATION,
+					GLES_SILENCE_DEPRECATION,
+				);
+				SKIP_INSTALL = YES;
+			};
+		};
+		851A0CD4764229B0677E7320 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43F31A343B057FCCA7D686A4,
+				580424D7D622287590C7CC0B,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		53D98ED45F617B95E521AFC7 = {
+			isa = PBXNativeTarget;
+			name = RaylibAppleHost;
+			productName = RaylibAppleHost;
+			productReference = A594B16FC31958EB8752ED61;
+			productType = "com.apple.product-type.library.static";
+			buildConfigurationList = 851A0CD4764229B0677E7320;
+			buildPhases = (
+				64D9992C1A2B768FE9D3C9AB,
+				9F4FB26B4A32E3F5A9B916CE,
+			);
+			buildRules = ();
+			dependencies = ();
+		};
+		8E0CB6D135FA109F29A84237 = {
+			isa = PBXFileReference;
+			path = libRaylibApple.a;
+			explicitFileType = archive.ar;
+			includeInIndex = 0;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B1CC13F07532E8E3F514E104 = {
+			isa = PBXFileReference;
+			path = ../../src/rcore.c;
+			name = rcore.c;
+			sourceTree = SOURCE_ROOT;
+			lastKnownFileType = sourcecode.c.c;
+		};
+		805B11B2B0F97B776F8CBDBF = {
+			isa = PBXBuildFile;
+			fileRef = B1CC13F07532E8E3F514E104;
+		};
+		447303A493BFCAC698659D27 = {
+			isa = PBXFileReference;
+			path = ../../src/rshapes.c;
+			name = rshapes.c;
+			sourceTree = SOURCE_ROOT;
+			lastKnownFileType = sourcecode.c.c;
+		};
+		443234AF52008A828D0FAF6D = {
+			isa = PBXBuildFile;
+			fileRef = 447303A493BFCAC698659D27;
+		};
+		98F8AA99F456405B8DC96CEF = {
+			isa = PBXFileReference;
+			path = ../../src/rtextures.c;
+			name = rtextures.c;
+			sourceTree = SOURCE_ROOT;
+			lastKnownFileType = sourcecode.c.c;
+		};
+		C3F491B4CF06ECE4BB552269 = {
+			isa = PBXBuildFile;
+			fileRef = 98F8AA99F456405B8DC96CEF;
+		};
+		8A2630A7D62D7D0A6CB932F3 = {
+			isa = PBXFileReference;
+			path = ../../src/rtext.c;
+			name = rtext.c;
+			sourceTree = SOURCE_ROOT;
+			lastKnownFileType = sourcecode.c.c;
+		};
+		6F7961A611E43314A3C38721 = {
+			isa = PBXBuildFile;
+			fileRef = 8A2630A7D62D7D0A6CB932F3;
+		};
+		4DEC6BC79CFBE4DB5EDCC736 = {
+			isa = PBXFileReference;
+			path = ../../src/rmodels.c;
+			name = rmodels.c;
+			sourceTree = SOURCE_ROOT;
+			lastKnownFileType = sourcecode.c.c;
+		};
+		4109D92E753887E626303B09 = {
+			isa = PBXBuildFile;
+			fileRef = 4DEC6BC79CFBE4DB5EDCC736;
+		};
+		D6DE934A66BA246B505074A7 = {
+			isa = PBXFileReference;
+			path = ../../src/raudio.c;
+			name = raudio.c;
+			sourceTree = SOURCE_ROOT;
+			lastKnownFileType = sourcecode.c.c;
+		};
+		088E8928823C0A08BDCD5C8F = {
+			isa = PBXBuildFile;
+			fileRef = D6DE934A66BA246B505074A7;
+			settings = {
+				COMPILER_FLAGS = "-x objective-c -fno-objc-arc";
+			};
+		};
+		1851B559710DEB3217D55E78 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				805B11B2B0F97B776F8CBDBF,
+				443234AF52008A828D0FAF6D,
+				C3F491B4CF06ECE4BB552269,
+				6F7961A611E43314A3C38721,
+				4109D92E753887E626303B09,
+				088E8928823C0A08BDCD5C8F,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE2620B92478A09DA43B502C = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7344B01EA709C5A072D376AA = {
+			isa = XCBuildConfiguration;
+			name = Debug;
+			buildSettings = {
+				PRODUCT_NAME = RaylibApple;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					PLATFORM_APPLE_SWIFTUI,
+					"$(RAYLIB_GRAPHICS)",
+					GL_SILENCE_DEPRECATION,
+					GLES_SILENCE_DEPRECATION,
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-Wno-macro-redefined",
+				);
+				SKIP_INSTALL = YES;
+			};
+		};
+		FBC156C16B7EB8F4DCD02892 = {
+			isa = XCBuildConfiguration;
+			name = Release;
+			buildSettings = {
+				PRODUCT_NAME = RaylibApple;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					PLATFORM_APPLE_SWIFTUI,
+					"$(RAYLIB_GRAPHICS)",
+					GL_SILENCE_DEPRECATION,
+					GLES_SILENCE_DEPRECATION,
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-Wno-macro-redefined",
+				);
+				SKIP_INSTALL = YES;
+			};
+		};
+		2847B3772A6CF9A7D75A60A0 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7344B01EA709C5A072D376AA,
+				FBC156C16B7EB8F4DCD02892,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2F835A150A5F6F5739BC1784 = {
+			isa = PBXNativeTarget;
+			name = RaylibApple;
+			productName = RaylibApple;
+			productReference = 8E0CB6D135FA109F29A84237;
+			productType = "com.apple.product-type.library.static";
+			buildConfigurationList = 2847B3772A6CF9A7D75A60A0;
+			buildPhases = (
+				1851B559710DEB3217D55E78,
+				AE2620B92478A09DA43B502C,
+			);
+			buildRules = ();
+			dependencies = ();
+		};
+		7DFD332EEB2D564B15C5AEB5 = {
+			isa = PBXFileReference;
+			path = RaylibProject.app;
+			explicitFileType = wrapper.application;
+			includeInIndex = 0;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8B305BC7FDCB408C13428365 = {
+			isa = PBXFileReference;
+			path = Shared/Launch.c;
+			name = Launch.c;
+			sourceTree = SOURCE_ROOT;
+			lastKnownFileType = sourcecode.c.c;
+		};
+		85652273E46E9602708CC758 = {
+			isa = PBXBuildFile;
+			fileRef = 8B305BC7FDCB408C13428365;
+		};
+		D631CAFE972437A34B74CCA6 = {
+			isa = PBXFileReference;
+			path = Game.c;
+			name = Game.c;
+			sourceTree = SOURCE_ROOT;
+			lastKnownFileType = sourcecode.c.c;
+		};
+		7BB875E93AA7B096A7A0AAD6 = {
+			isa = PBXBuildFile;
+			fileRef = D631CAFE972437A34B74CCA6;
+			settings = {
+				COMPILER_FLAGS = "-Dmain=RaylibGameMain";
+			};
+		};
+		94F79B6B5D2956E806A34707 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85652273E46E9602708CC758,
+				7BB875E93AA7B096A7A0AAD6,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90007B66CC31570A9087876C = {
+			isa = PBXBuildFile;
+			fileRef = A594B16FC31958EB8752ED61;
+		};
+		8229B64FC9D194041F23350D = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE5522AE37F4A99FEF20D08F;
+			proxyType = 1;
+			remoteGlobalIDString = 53D98ED45F617B95E521AFC7;
+			remoteInfo = RaylibAppleHost;
+		};
+		9E92F8BCF2A1B1C78143B230 = {
+			isa = PBXTargetDependency;
+			target = 53D98ED45F617B95E521AFC7;
+			targetProxy = 8229B64FC9D194041F23350D;
+		};
+		B07AA0001C510B5D675385AA = {
+			isa = PBXBuildFile;
+			fileRef = 8E0CB6D135FA109F29A84237;
+		};
+		59B0BF65623EF94AA7B67740 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE5522AE37F4A99FEF20D08F;
+			proxyType = 1;
+			remoteGlobalIDString = 2F835A150A5F6F5739BC1784;
+			remoteInfo = RaylibApple;
+		};
+		C5097F9BB4D9A9CCF90522B7 = {
+			isa = PBXTargetDependency;
+			target = 2F835A150A5F6F5739BC1784;
+			targetProxy = 59B0BF65623EF94AA7B67740;
+		};
+		E64CB8F04DC8AA3D797BCD55 = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90007B66CC31570A9087876C,
+				B07AA0001C510B5D675385AA,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81769A9C9A0AE4144CC0F6E2 = {
+			isa = XCBuildConfiguration;
+			name = Debug;
+			buildSettings = {
+				PRODUCT_NAME = RaylibProject;
+				PRODUCT_BUNDLE_IDENTIFIER = org.raylib.raylibproject;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Shared/Info.plist";
+				"INFOPLIST_FILE[sdk=appletv*]" = "$(SRCROOT)/Shared/Info-tvOS.plist";
+				RAYLIB_UNAVAILABLE = "";
+				RAYLIB_EDITABLE_RESOURCES = NO;
+				INFOPLIST_KEY_CFBundleDisplayName = RaylibProject;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphone*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=appletv*]" = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				"INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone[sdk=iphone*]" = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				"INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad[sdk=iphone*]" = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)",
+					"$(SDKROOT)/usr/lib/swift",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					PLATFORM_APPLE_SWIFTUI,
+					"$(RAYLIB_GRAPHICS)",
+					"$(RAYLIB_EXAMPLE_PLATFORM)",
+					GL_SILENCE_DEPRECATION,
+					GLES_SILENCE_DEPRECATION,
+				);
+				"RAYLIB_EXAMPLE_PLATFORM[sdk=macosx*]" = PLATFORM_DESKTOP;
+				"OTHER_LDFLAGS[sdk=macosx*]" = (
+					"$(inherited)",
+					"-framework",
+					Foundation,
+					"-framework",
+					GameController,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					AudioToolbox,
+					"-framework",
+					AVFoundation,
+					"-framework",
+					CoreFoundation,
+					"-framework",
+					AppKit,
+					"-framework",
+					OpenGL,
+					"-framework",
+					ApplicationServices,
+					"-framework",
+					CoreAudio,
+					"-framework",
+					IOKit,
+				);
+				"OTHER_LDFLAGS[sdk=iphone*]" = (
+					"$(inherited)",
+					"-framework",
+					Foundation,
+					"-framework",
+					GameController,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					AudioToolbox,
+					"-framework",
+					AVFoundation,
+					"-framework",
+					CoreFoundation,
+					"-framework",
+					UIKit,
+					"-framework",
+					OpenGLES,
+				);
+				"OTHER_LDFLAGS[sdk=appletv*]" = (
+					"$(inherited)",
+					"-framework",
+					Foundation,
+					"-framework",
+					GameController,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					AudioToolbox,
+					"-framework",
+					AVFoundation,
+					"-framework",
+					CoreFoundation,
+					"-framework",
+					UIKit,
+					"-framework",
+					OpenGLES,
+				);
+			};
+		};
+		C1ED29EABFF737E63477C9C8 = {
+			isa = XCBuildConfiguration;
+			name = Release;
+			buildSettings = {
+				PRODUCT_NAME = RaylibProject;
+				PRODUCT_BUNDLE_IDENTIFIER = org.raylib.raylibproject;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Shared/Info.plist";
+				"INFOPLIST_FILE[sdk=appletv*]" = "$(SRCROOT)/Shared/Info-tvOS.plist";
+				RAYLIB_UNAVAILABLE = "";
+				RAYLIB_EDITABLE_RESOURCES = NO;
+				INFOPLIST_KEY_CFBundleDisplayName = RaylibProject;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphone*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=appletv*]" = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				"INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone[sdk=iphone*]" = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				"INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad[sdk=iphone*]" = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)",
+					"$(SDKROOT)/usr/lib/swift",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					PLATFORM_APPLE_SWIFTUI,
+					"$(RAYLIB_GRAPHICS)",
+					"$(RAYLIB_EXAMPLE_PLATFORM)",
+					GL_SILENCE_DEPRECATION,
+					GLES_SILENCE_DEPRECATION,
+				);
+				"RAYLIB_EXAMPLE_PLATFORM[sdk=macosx*]" = PLATFORM_DESKTOP;
+				"OTHER_LDFLAGS[sdk=macosx*]" = (
+					"$(inherited)",
+					"-framework",
+					Foundation,
+					"-framework",
+					GameController,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					AudioToolbox,
+					"-framework",
+					AVFoundation,
+					"-framework",
+					CoreFoundation,
+					"-framework",
+					AppKit,
+					"-framework",
+					OpenGL,
+					"-framework",
+					ApplicationServices,
+					"-framework",
+					CoreAudio,
+					"-framework",
+					IOKit,
+				);
+				"OTHER_LDFLAGS[sdk=iphone*]" = (
+					"$(inherited)",
+					"-framework",
+					Foundation,
+					"-framework",
+					GameController,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					AudioToolbox,
+					"-framework",
+					AVFoundation,
+					"-framework",
+					CoreFoundation,
+					"-framework",
+					UIKit,
+					"-framework",
+					OpenGLES,
+				);
+				"OTHER_LDFLAGS[sdk=appletv*]" = (
+					"$(inherited)",
+					"-framework",
+					Foundation,
+					"-framework",
+					GameController,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					AudioToolbox,
+					"-framework",
+					AVFoundation,
+					"-framework",
+					CoreFoundation,
+					"-framework",
+					UIKit,
+					"-framework",
+					OpenGLES,
+				);
+			};
+		};
+		01400F2C1BAEBE8319D3F9DA = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81769A9C9A0AE4144CC0F6E2,
+				C1ED29EABFF737E63477C9C8,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A2703923794E36953D15910E = {
+			isa = PBXNativeTarget;
+			name = RaylibProject;
+			productName = RaylibProject;
+			productReference = 7DFD332EEB2D564B15C5AEB5;
+			productType = "com.apple.product-type.application";
+			buildConfigurationList = 01400F2C1BAEBE8319D3F9DA;
+			buildPhases = (
+				94F79B6B5D2956E806A34707,
+				E64CB8F04DC8AA3D797BCD55,
+			);
+			buildRules = ();
+			dependencies = (
+				9E92F8BCF2A1B1C78143B230,
+				C5097F9BB4D9A9CCF90522B7,
+			);
+		};
+		54AA7A1A4F09CDA990F3F651 = {
+			isa = PBXFileReference;
+			path = Shared/AppleGameHost.h;
+			name = AppleGameHost.h;
+			sourceTree = SOURCE_ROOT;
+			lastKnownFileType = sourcecode.c.h;
+		};
+		F8ACE78DE0C01BC99D9DEF90 = {
+			isa = PBXFileReference;
+			path = Shared/Info.plist;
+			name = Info.plist;
+			sourceTree = SOURCE_ROOT;
+			lastKnownFileType = text.plist.xml;
+		};
+		9153B186CF9DF4C3FE76C1A1 = {
+			isa = PBXFileReference;
+			path = "Shared/Info-tvOS.plist";
+			name = "Info-tvOS.plist";
+			sourceTree = SOURCE_ROOT;
+			lastKnownFileType = text.plist.xml;
+		};
+		47E65895E7E0A9704454D3B6 = {
+			isa = PBXGroup;
+			name = Products;
+			children = (
+				A594B16FC31958EB8752ED61,
+				8E0CB6D135FA109F29A84237,
+				7DFD332EEB2D564B15C5AEB5,
+			);
+			sourceTree = "<group>";
+		};
+		6C66A95A75D5B8FC329160C8 = {
+			isa = PBXGroup;
+			children = (
+				F1D1F6136EF0929F83C305F2,
+				5CE226BD12252CED1305C27C,
+				B1CC13F07532E8E3F514E104,
+				447303A493BFCAC698659D27,
+				98F8AA99F456405B8DC96CEF,
+				8A2630A7D62D7D0A6CB932F3,
+				4DEC6BC79CFBE4DB5EDCC736,
+				D6DE934A66BA246B505074A7,
+				8B305BC7FDCB408C13428365,
+				D631CAFE972437A34B74CCA6,
+				54AA7A1A4F09CDA990F3F651,
+				F8ACE78DE0C01BC99D9DEF90,
+				9153B186CF9DF4C3FE76C1A1,
+				47E65895E7E0A9704454D3B6,
+			);
+			sourceTree = "<group>";
+		};
+		8FAFC532E7AE7C598132AA17 = {
+			isa = XCBuildConfiguration;
+			name = Debug;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../../src",
+					"$(SRCROOT)/../../src/external/glfw/include",
+					"$(SRCROOT)/../../examples/others/external/include",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				"TARGETED_DEVICE_FAMILY[sdk=iphone*]" = "1,2";
+				"TARGETED_DEVICE_FAMILY[sdk=appletv*]" = 3;
+				"RAYLIB_GRAPHICS[sdk=macosx*]" = GRAPHICS_API_OPENGL_33;
+				"RAYLIB_GRAPHICS[sdk=iphone*]" = GRAPHICS_API_OPENGL_ES3;
+				"RAYLIB_GRAPHICS[sdk=appletv*]" = GRAPHICS_API_OPENGL_ES3;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				ONLY_ACTIVE_ARCH = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+			};
+		};
+		0B5F02D40B55E8018136E1A0 = {
+			isa = XCBuildConfiguration;
+			name = Release;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../../src",
+					"$(SRCROOT)/../../src/external/glfw/include",
+					"$(SRCROOT)/../../examples/others/external/include",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				"TARGETED_DEVICE_FAMILY[sdk=iphone*]" = "1,2";
+				"TARGETED_DEVICE_FAMILY[sdk=appletv*]" = 3;
+				"RAYLIB_GRAPHICS[sdk=macosx*]" = GRAPHICS_API_OPENGL_33;
+				"RAYLIB_GRAPHICS[sdk=iphone*]" = GRAPHICS_API_OPENGL_ES3;
+				"RAYLIB_GRAPHICS[sdk=appletv*]" = GRAPHICS_API_OPENGL_ES3;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				ONLY_ACTIVE_ARCH = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+			};
+		};
+		81BE2D52F524DD52C23494E1 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FAFC532E7AE7C598132AA17,
+				0B5F02D40B55E8018136E1A0,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FE5522AE37F4A99FEF20D08F = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 2700;
+			};
+			buildConfigurationList = 81BE2D52F524DD52C23494E1;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6C66A95A75D5B8FC329160C8;
+			productRefGroup = 47E65895E7E0A9704454D3B6;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				53D98ED45F617B95E521AFC7,
+				2F835A150A5F6F5739BC1784,
+				A2703923794E36953D15910E,
+			);
+		};
+	};
+	rootObject = FE5522AE37F4A99FEF20D08F;
+}

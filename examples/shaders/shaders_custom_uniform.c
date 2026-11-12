@@ -24,6 +24,8 @@
 
 #if defined(PLATFORM_DESKTOP)
     #define GLSL_VERSION            330
+#elif defined(PLATFORM_APPLE_SWIFTUI) && defined(GRAPHICS_API_OPENGL_ES3)
+    #define GLSL_VERSION            300
 #else   // PLATFORM_ANDROID, PLATFORM_WEB
     #define GLSL_VERSION            100
 #endif

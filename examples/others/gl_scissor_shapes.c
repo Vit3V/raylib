@@ -29,7 +29,9 @@
 // rlgl has no stencil wrapper (see raysan5/raylib discussion #2964), so this
 // example calls the handful of OpenGL 1.0 stencil functions directly - they
 // don't need glad/extension loading, same as glScissor doesn't.
-#if defined(__APPLE__)
+#if defined(PLATFORM_APPLE_SWIFTUI) && defined(GRAPHICS_API_OPENGL_ES3)
+    #include <OpenGLES/ES3/gl.h>
+#elif defined(__APPLE__)
     #include <OpenGL/gl.h>
 #else
     #if !defined(APIENTRY)

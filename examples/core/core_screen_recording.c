@@ -79,7 +79,11 @@ int main(void)
                 // Stop current recording and save file
                 gifRecording = false;
                 MsfGifResult result = msf_gif_end(&gifState);
+#if defined(PLATFORM_APPLE_SWIFTUI)
+                SaveFileData("screenrecording.gif", result.data, (unsigned int)result.dataSize);
+#else
                 SaveFileData(TextFormat("%s/screenrecording.gif", GetApplicationDirectory()), result.data, (unsigned int)result.dataSize);
+#endif
                 msf_gif_free(result);
 
                 TraceLog(LOG_INFO, "Finish animated GIF recording");

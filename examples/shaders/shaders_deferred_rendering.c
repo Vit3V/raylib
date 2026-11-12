@@ -27,6 +27,8 @@
 
 #if defined(PLATFORM_DESKTOP)
     #define GLSL_VERSION            330
+#elif defined(PLATFORM_APPLE_SWIFTUI) && defined(GRAPHICS_API_OPENGL_ES3)
+    #define GLSL_VERSION            300
 #else   // PLATFORM_ANDROID, PLATFORM_WEB
     #define GLSL_VERSION            100
 #endif
@@ -102,11 +104,16 @@ int main(void)
     // 16-bit precision ensures OpenGL ES 3 compatibility, though it may lack precision for real scenarios
     // But as mentioned above, the positions could be reconstructed instead of stored. If not targeting OpenGL ES
     // and you wish to maintain this approach, consider using `RL_PIXELFORMAT_UNCOMPRESSED_R32G32B32`
-    gBuffer.positionTextureId = rlLoadTexture(NULL, screenWidth, screenHeight, RL_PIXELFORMAT_UNCOMPRESSED_R16G16B16, 1);
+#if defined(PLATFORM_APPLE_SWIFTUI) && defined(GRAPHICS_API_OPENGL_ES3)
+    const int gbufferFormat = RL_PIXELFORMAT_UNCOMPRESSED_R16G16B16A16;
+#else
+    const int gbufferFormat = RL_PIXELFORMAT_UNCOMPRESSED_R16G16B16;
+#endif
+    gBuffer.positionTextureId = rlLoadTexture(NULL, screenWidth, screenHeight, gbufferFormat, 1);
 
     // Similarly, 16-bit precision is used for normals ensures OpenGL ES 3 compatibility
     // This is generally sufficient, but a 16-bit fixed-point format offer a better uniform precision in all orientations
-    gBuffer.normalTextureId = rlLoadTexture(NULL, screenWidth, screenHeight, RL_PIXELFORMAT_UNCOMPRESSED_R16G16B16, 1);
+    gBuffer.normalTextureId = rlLoadTexture(NULL, screenWidth, screenHeight, gbufferFormat, 1);
 
     // Albedo (diffuse color) and specular strength can be combined into one texture
     // The color in RGB, and the specular strength in the alpha channel

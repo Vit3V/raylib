@@ -15,6 +15,10 @@
 
 #include "raylib.h"
 
+#if defined(PLATFORM_APPLE_SWIFTUI)
+    #include "platforms/rcore_apple.h"
+#endif
+
 //------------------------------------------------------------------------------------
 // Program main entry point
 //------------------------------------------------------------------------------------
@@ -36,12 +40,19 @@ int main(void)
     //--------------------------------------------------------------------------------------
 
     // Main game loop
+#if defined(PLATFORM_APPLE_SWIFTUI)
+    while (!exitWindow && !AppleStopRequested())
+#else
     while (!exitWindow)
+#endif
     {
         // Update
         //----------------------------------------------------------------------------------
         // Detect if X-button or KEY_ESCAPE have been pressed to close window
         if (WindowShouldClose() || IsKeyPressed(KEY_ESCAPE)) exitWindowRequested = true;
+#if defined(PLATFORM_APPLE_SWIFTUI)
+        if (AppleStopRequested()) break;
+#endif
 
         if (exitWindowRequested)
         {

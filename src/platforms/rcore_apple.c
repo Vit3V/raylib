@@ -300,6 +300,7 @@ int InitPlatform(void)
     appleNeedsFrame = true;
     AppleClearInput();
     AppleSetWindow(APPLE_WINDOW_TITLE, 0, 0, CORE.Window.title);
+    AppleSetWindow(APPLE_WINDOW_SIZE, CORE.Window.screen.width, CORE.Window.screen.height, NULL);
     AppleSetWindow(APPLE_WINDOW_FLAGS, (float)CORE.Window.flags, 0, NULL);
     return 0;
 }

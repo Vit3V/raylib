@@ -39,6 +39,7 @@ private struct GameContent: View {
                 .padding()
         } else {
             ContentView(host: session.host, active: scenePhase == .active, reportError: { session.failure = $0 })
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
 #if !os(tvOS)
                 .dropDestination(for: URL.self) { urls, _ in
                     for url in urls where url.isFileURL { session.host.dropFile(url) }
@@ -55,10 +56,26 @@ private struct ContentView {
     let reportError: (String) -> Void
 
     func makeCoordinator() -> AppleGameHost { host }
+
+    private func proposedSize(_ proposal: ProposedViewSize) -> CGSize? {
+        guard
+            let width = proposal.width,
+            width.isFinite,
+            let height = proposal.height,
+            height.isFinite
+        else {
+            return nil
+        }
+        return CGSize(width: width, height: height)
+    }
 }
 
 #if os(macOS)
 extension ContentView: NSViewRepresentable {
+    func sizeThatFits(_ proposal: ProposedViewSize, nsView: NSView, context: Context) -> CGSize? {
+        proposedSize(proposal)
+    }
+
     func makeNSView(context: Context) -> NSView {
         context.coordinator.reportError = reportError
         return context.coordinator.makeView()
@@ -75,6 +92,10 @@ extension ContentView: NSViewRepresentable {
 }
 #else
 extension ContentView: UIViewControllerRepresentable {
+    func sizeThatFits(_ proposal: ProposedViewSize, uiViewController: UIViewController, context: Context) -> CGSize? {
+        proposedSize(proposal)
+    }
+
     func makeUIViewController(context: Context) -> UIViewController {
         context.coordinator.reportError = reportError
         return context.coordinator.makeViewController()

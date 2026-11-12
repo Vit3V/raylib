@@ -895,7 +895,22 @@ static int MacKey(unsigned short code)
     switch (action)
     {
         case APPLE_WINDOW_TITLE: if (text != nil) window.title = text; break;
-        case APPLE_WINDOW_SIZE: [window setContentSize:NSMakeSize(x, y)]; break;
+        case APPLE_WINDOW_SIZE:
+        {
+            if (window.styleMask & NSWindowStyleMaskFullScreen) break;
+
+            // Size the usable area below the title bar and toolbar in window points.
+            NSSize layoutSize = window.contentLayoutRect.size;
+            CGFloat widthChange = x - layoutSize.width;
+            CGFloat heightChange = y - layoutSize.height;
+            if (widthChange == 0 && heightChange == 0) break;
+
+            NSRect frame = window.frame;
+            frame.size.width += widthChange;
+            frame.size.height += heightChange;
+            frame.origin.y -= heightChange;
+            [window setFrame:frame display:YES];
+        } break;
         case APPLE_WINDOW_POSITION: [window setFrameTopLeftPoint:NSMakePoint(x, NSMaxY(NSScreen.screens.firstObject.frame) - y)]; break;
         case APPLE_WINDOW_MONITOR:
         {

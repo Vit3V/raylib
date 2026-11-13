@@ -40,7 +40,7 @@ let package = Package(
             name: "RaylibAppleHost",
             dependencies: ["CRaylib"],
             path: "projects/Xcode/AppleAppSupport",
-            exclude: ["Archive.c", "AppleGameHost.h", "AppleGameHost.m", "Info.plist", "Info-tvOS.plist",
+            exclude: ["AppleGameHost.h", "AppleGameHost.m", "Info.plist", "Info-tvOS.plist",
                       "Launch.c", "StandaloneExample.c", "StandaloneGLFW.m"],
             sources: ["ContentView.swift"]
         ),

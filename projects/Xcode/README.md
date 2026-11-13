@@ -1,6 +1,6 @@
 # raylib with SwiftUI
 
-Open **raylib_game.xcodeproj** directly in Xcode for a blank app. Its **raylib_game** scheme uses the `RaylibAppleHost` product from the local Swift package at the repository root. Open **raylib.xcodeproj** to run the examples or build `libraylib.a` with the **raylib** scheme. Choose a Mac, iPhone, iPad, Apple TV, or simulator destination. Device builds need a signing team. The minimum versions are macOS 14, iOS/iPadOS 17, and tvOS 17.
+Open **raylib_game.xcodeproj** for a blank app or **raylib_examples.xcodeproj** to run the examples. Both projects use the local Swift package at the repository root. Choose a Mac, iPhone, iPad, Apple TV, or simulator destination. Device builds need a signing team. The minimum versions are macOS 14, iOS/iPadOS 17, and tvOS 17. To build `libraylib.a` directly, run `swift build --product raylib` from the repository root.
 
 ## Bring a C game
 
@@ -52,7 +52,7 @@ Run an individual example using its named scheme. The **All Examples** scheme bu
 ```sh
 python3 projects/Xcode/generate_projects.py
 python3 projects/Xcode/generate_projects.py --check
-xcodebuild -project projects/Xcode/raylib.xcodeproj \
+xcodebuild -project projects/Xcode/raylib_examples.xcodeproj \
     -scheme 'All Examples' -sdk iphonesimulator CODE_SIGNING_ALLOWED=NO build
 ```
 

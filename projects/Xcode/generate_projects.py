@@ -11,6 +11,7 @@ import xml.etree.ElementTree as ET
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
 CONFIGURATIONS = ("Debug", "Release")
+EXAMPLES_PROJECT = "raylib_examples"
 
 COMMON = {
     "CLANG_ENABLE_MODULES": "YES",
@@ -94,8 +95,9 @@ def openstep(value, level=0):
 
 
 class Project:
-    def __init__(self, name):
+    def __init__(self, name, identifier_namespace=None):
         self.name = name
+        self.identifier_namespace = identifier_namespace or name
         self.objects = {}
         self.targets = []
         self.schemes = {}
@@ -106,7 +108,7 @@ class Project:
         self.package = self.add("XCLocalSwiftPackageReference", "raylib", relativePath="../..")
 
     def identifier(self, name):
-        return sha1(f"{self.name}/{name}".encode()).hexdigest()[:24].upper()
+        return sha1(f"{self.identifier_namespace}/{name}".encode()).hexdigest()[:24].upper()
 
     def add(self, kind, identity, **fields):
         identifier = self.identifier(f"{kind}/{identity}")
@@ -127,7 +129,7 @@ class Project:
         configurations = []
         for mode in CONFIGURATIONS:
             overrides = {}
-            if name == self.name + "/project":
+            if name == self.identifier_namespace + "/project":
                 overrides = {
                     "GCC_OPTIMIZATION_LEVEL": 0 if mode == "Debug" else 2,
                     "SWIFT_OPTIMIZATION_LEVEL": "-Onone" if mode == "Debug" else "-O",
@@ -148,11 +150,11 @@ class Project:
             fields["settings"] = {"COMPILER_FLAGS": flags}
         return self.add("PBXBuildFile", f"{target}/{path}", **fields)
 
-    def target(self, name, sources, settings, package_product, resources=None, platform_filters=()):
-        app = "PRODUCT_BUNDLE_IDENTIFIER" in settings
-        product_name = f"{name}.app" if app else f"lib{name}.a"
+    def app(self, name, sources, settings, resources=None, platform_filters=()):
+        package_product = "RaylibAppleHost"
+        product_name = f"{name}.app"
         product = self.add("PBXFileReference", "product/" + name, path=product_name,
-                           explicitFileType="wrapper.application" if app else "archive.ar",
+                           explicitFileType="wrapper.application",
                            includeInIndex=0, sourceTree="BUILT_PRODUCTS_DIR")
         self.products.append(product)
         sources_phase = self.add("PBXSourcesBuildPhase", name, buildActionMask=2147483647,
@@ -173,15 +175,13 @@ class Project:
                                    files=[self.build_file(name, resources, kind="folder")],
                                    runOnlyForDeploymentPostprocessing=0))
         target = self.add("PBXNativeTarget", name, name=name, productName=name, productReference=product,
-                          productType="com.apple.product-type.application" if app else "com.apple.product-type.library.static",
+                          productType="com.apple.product-type.application",
                           buildConfigurationList=self.configurations(name, {"PRODUCT_NAME": name, **settings}),
                           buildPhases=phases, buildRules=[], dependencies=[],
                           packageProductDependencies=[package_dependency])
         self.targets.append(target)
-        if app:
-            self.apps.append((name, target, product_name))
-            self.schemes[name] = self.scheme(self.apps[-1:])
-        return target, product
+        self.apps.append((name, target, product_name))
+        self.schemes[name] = self.scheme(self.apps[-1:])
 
     def scheme(self, apps, launchable=True):
         scheme = ET.Element("Scheme", version="1.7")
@@ -233,7 +233,7 @@ class Project:
         root = self.add("PBXGroup", "main", children=[*self.references.values(), products], sourceTree="<group>")
         self.objects[self.root_id] = {
             "isa": "PBXProject", "attributes": {"LastUpgradeCheck": 2700},
-            "buildConfigurationList": self.configurations(self.name + "/project", COMMON),
+            "buildConfigurationList": self.configurations(self.identifier_namespace + "/project", COMMON),
             "compatibilityVersion": "Xcode 14.0", "developmentRegion": "en",
             "hasScannedForEncodings": 0, "knownRegions": ["en", "Base"],
             "mainGroup": root, "productRefGroup": products, "projectDirPath": "",
@@ -292,15 +292,12 @@ def application(project, name, source, resources=None):
         platform_filters = ("ios", "ios-simulator", "tvos", "tvos-simulator")
     else:
         sources.append((source, "-Dmain=RaylibGameMain"))
-    project.target(name, sources, settings, "RaylibAppleHost", resources, platform_filters)
+    project.app(name, sources, settings, resources, platform_filters)
 
 
 def build_projects():
-    examples = Project("raylib")
-    standard = examples.target(
-        "raylib", [("AppleAppSupport/Archive.c", "")], {"SKIP_INSTALL": "YES"}, "raylib",
-    )
-    examples.schemes["raylib"] = examples.scheme([("raylib", standard[0], "libraylib.a")], launchable=False)
+    # Keep existing target and build setting identifiers after renaming the project.
+    examples = Project(EXAMPLES_PROJECT, identifier_namespace="raylib")
     sources = sorted((*ROOT.glob("examples/*.c"), *ROOT.glob("examples/*/*.c")))
     names = set()
     for source in sources:
@@ -333,7 +330,7 @@ def main():
         else:
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(content)
-    for path in (HERE / "raylib.xcodeproj/xcshareddata/xcschemes").glob("*.xcscheme"):
+    for path in (HERE / f"{EXAMPLES_PROJECT}.xcodeproj/xcshareddata/xcschemes").glob("*.xcscheme"):
         if path not in generated:
             if args.check:
                 print(f"Obsolete: {path.relative_to(HERE)}")

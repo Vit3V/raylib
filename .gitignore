@@ -81,7 +81,7 @@ examples/**/logs/*
 *.pbxuser
 *.xcbkptlist
 *.xcscheme
-!/projects/Xcode/raylib.xcodeproj/xcshareddata/xcschemes/*.xcscheme
+!/projects/Xcode/raylib_examples.xcodeproj/xcshareddata/xcschemes/*.xcscheme
 !/projects/Xcode/raylib_game.xcodeproj/xcshareddata/xcschemes/*.xcscheme
 *.xcworkspacedata
 *.xcuserstate

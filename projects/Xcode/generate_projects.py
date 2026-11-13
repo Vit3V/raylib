@@ -92,6 +92,7 @@ class Project:
         self.apps = []
         self.references = {}
         self.products = []
+        self.project_references = []
         self.root_id = self.identifier("project")
 
     def identifier(self, name):
@@ -137,7 +138,7 @@ class Project:
             fields["settings"] = {"COMPILER_FLAGS": flags}
         return self.add("PBXBuildFile", f"{target}/{path}", **fields)
 
-    def target(self, name, sources, settings, libraries=(), resources=None):
+    def target(self, name, sources, settings, libraries=(), resources=None, library_project=None):
         app = "PRODUCT_BUNDLE_IDENTIFIER" in settings
         product_name = f"{name}.app" if app else f"lib{name}.a"
         product = self.add("PBXFileReference", "product/" + name, path=product_name,
@@ -149,12 +150,30 @@ class Project:
                                  runOnlyForDeploymentPostprocessing=0)
         frameworks = []
         dependencies = []
-        for library in libraries:
-            target_id, product_id = library
-            frameworks.append(self.add("PBXBuildFile", f"{name}/{product_id}", fileRef=product_id))
-            proxy = self.add("PBXContainerItemProxy", f"{name}/{target_id}", containerPortal=self.root_id,
-                             proxyType=1, remoteGlobalIDString=target_id, remoteInfo=self.objects[target_id]["name"])
-            dependencies.append(self.add("PBXTargetDependency", f"{name}/{target_id}", target=target_id, targetProxy=proxy))
+        portal = self.root_id
+        if library_project is not None:
+            portal = self.file(f"{library_project.name}.xcodeproj", "wrapper.pb-project")
+        remote_products = []
+        library_objects = (library_project or self).objects
+        for target_id, product_id in libraries:
+            library_name = library_objects[target_id]["name"]
+            product_ref = product_id
+            if library_project is not None:
+                product_proxy = self.add("PBXContainerItemProxy", f"product/{product_id}", containerPortal=portal,
+                                         proxyType=2, remoteGlobalIDString=product_id, remoteInfo=library_name)
+                product_ref = self.add("PBXReferenceProxy", product_id, fileType="archive.ar",
+                                       path=library_objects[product_id]["path"], remoteRef=product_proxy,
+                                       sourceTree="BUILT_PRODUCTS_DIR")
+                remote_products.append(product_ref)
+            frameworks.append(self.add("PBXBuildFile", f"{name}/{product_id}", fileRef=product_ref))
+            proxy = self.add("PBXContainerItemProxy", f"{name}/{target_id}", containerPortal=portal,
+                             proxyType=1, remoteGlobalIDString=target_id, remoteInfo=library_name)
+            target_reference = {"target": target_id} if library_project is None else {"name": library_name}
+            dependencies.append(self.add("PBXTargetDependency", f"{name}/{target_id}", targetProxy=proxy, **target_reference))
+        if library_project is not None:
+            product_group = self.add("PBXGroup", f"products/{library_project.name}", name="Products",
+                                     children=remote_products, sourceTree="<group>")
+            self.project_references.append({"ProductGroup": product_group, "ProjectRef": portal})
         framework_phase = self.add("PBXFrameworksBuildPhase", name, buildActionMask=2147483647,
                                    files=frameworks, runOnlyForDeploymentPostprocessing=0)
         phases = [sources_phase, framework_phase]
@@ -199,7 +218,7 @@ class Project:
         return '<?xml version="1.0" encoding="UTF-8"?>\n' + ET.tostring(scheme, encoding="unicode") + "\n"
 
     def files(self):
-        for shared in ("AppleGameHost.h", "Info.plist", "Info-tvOS.plist"):
+        for shared in ("Info.plist", "Info-tvOS.plist"):
             self.file(f"Shared/{shared}")
         products = self.add("PBXGroup", "products", name="Products", children=self.products, sourceTree="<group>")
         root = self.add("PBXGroup", "main", children=[*self.references.values(), products], sourceTree="<group>")
@@ -211,6 +230,8 @@ class Project:
             "mainGroup": root, "productRefGroup": products, "projectDirPath": "",
             "projectRoot": "", "targets": self.targets,
         }
+        if self.project_references:
+            self.objects[self.root_id]["projectReferences"] = self.project_references
         bundle = HERE / f"{self.name}.xcodeproj"
         project = {"archiveVersion": 1, "classes": {}, "objectVersion": 56,
                    "objects": self.objects, "rootObject": self.root_id}
@@ -235,6 +256,7 @@ def library(project, name, custom=False):
 
 
 def host(project):
+    project.file("Shared/AppleGameHost.h")
     return project.target("RaylibAppleHost", [("Shared/AppleGameHost.m", ""), ("Shared/ContentView.swift", "")], {
         "SWIFT_OBJC_BRIDGING_HEADER": "$(SRCROOT)/Shared/AppleGameHost.h",
         "GCC_PREPROCESSOR_DEFINITIONS": ["$(inherited)", "GL_SILENCE_DEPRECATION", "GLES_SILENCE_DEPRECATION"],
@@ -242,7 +264,7 @@ def host(project):
     })
 
 
-def application(project, name, source, libraries, resources=None):
+def application(project, name, source, libraries, resources=None, library_project=None):
     bundle_id = "org.raylib." + name.lower().replace("_", "-")
     settings = {
         "PRODUCT_BUNDLE_IDENTIFIER": bundle_id,
@@ -280,16 +302,14 @@ def application(project, name, source, libraries, resources=None):
         settings["EXCLUDED_SOURCE_FILE_NAMES[sdk=macosx*]"] = "Launch.c"
     else:
         sources.append((source, "-Dmain=RaylibGameMain"))
-    project.target(name, sources, settings, libraries=libraries, resources=resources)
+    project.target(name, sources, settings, libraries=libraries, resources=resources, library_project=library_project)
 
 
 def build_projects():
-    template = Project("RaylibProject")
-    application(template, "RaylibProject", "Game.c", (host(template), library(template, "RaylibApple")))
-
-    examples = Project("RaylibExamples")
+    examples = Project("raylib")
     shared_host = host(examples)
-    standard = library(examples, "RaylibApple")
+    standard = library(examples, "raylib")
+    examples.schemes["raylib"] = examples.scheme([("raylib", standard[0], "libraylib.a")], launchable=False)
     manual = library(examples, "RaylibAppleManualFrames", custom=True)
     sources = sorted((*ROOT.glob("examples/*.c"), *ROOT.glob("examples/*/*.c")))
     names = set()
@@ -303,6 +323,9 @@ def build_projects():
                     (shared_host, manual if name == "core_custom_frame_control" else standard),
                     "../../" + str(resources.relative_to(ROOT)) if resources.is_dir() else None)
     examples.schemes["All Examples"] = examples.scheme(examples.apps, launchable=False)
+
+    template = Project("raylib_game")
+    application(template, "raylib_game", "Game.c", (shared_host, standard), library_project=examples)
     return {**template.files(), **examples.files()}, len(names)
 
 
@@ -321,7 +344,7 @@ def main():
         else:
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(content)
-    for path in (HERE / "RaylibExamples.xcodeproj/xcshareddata/xcschemes").glob("*.xcscheme"):
+    for path in (HERE / "raylib.xcodeproj/xcshareddata/xcschemes").glob("*.xcscheme"):
         if path not in generated:
             if args.check:
                 print(f"Obsolete: {path.relative_to(HERE)}")

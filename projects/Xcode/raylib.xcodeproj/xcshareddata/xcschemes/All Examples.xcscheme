@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme version="1.7">
+   <BuildAction parallelizeBuildables="YES" buildImplicitDependencies="YES">
+      <BuildActionEntries>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="9ED459F9002625FBADECEB28" BuildableName="audio_amp_envelope.app" BlueprintName="audio_amp_envelope" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="DF10294B4C8CA3C35A9D2C7F" BuildableName="audio_mixed_processor.app" BlueprintName="audio_mixed_processor" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="EA08EB4A8C07AB4FB24081E5" BuildableName="audio_module_playing.app" BlueprintName="audio_module_playing" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="0831329E7CF459740375FE94" BuildableName="audio_music_stream.app" BlueprintName="audio_music_stream" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="5BDACBBFD4A2799CF1632BEA" BuildableName="audio_raw_stream.app" BlueprintName="audio_raw_stream" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="4018D6AFCAFBD6E8E8FCE718" BuildableName="audio_sound_loading.app" BlueprintName="audio_sound_loading" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="FF670B2CB9972681017625E2" BuildableName="audio_sound_multi.app" BlueprintName="audio_sound_multi" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="8D3EAC363A3F44498CFABCEF" BuildableName="audio_sound_positioning.app" BlueprintName="audio_sound_positioning" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="6329B3F3F7E0782ACA8ACC2D" BuildableName="audio_spectrum_visualizer.app" BlueprintName="audio_spectrum_visualizer" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="EC2AD29122DE392A991E8BE7" BuildableName="audio_stream_callback.app" BlueprintName="audio_stream_callback" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="EEE505BCF65C85C1B08CE16A" BuildableName="audio_stream_effects.app" BlueprintName="audio_stream_effects" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="BF03103F415B97EC617F5924" BuildableName="core_2d_camera.app" BlueprintName="core_2d_camera" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="F330CFB993923DCE8DB11FEC" BuildableName="core_2d_camera_mouse_zoom.app" BlueprintName="core_2d_camera_mouse_zoom" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="34EB938E499D7E10FCA1D1A3" BuildableName="core_2d_camera_platformer.app" BlueprintName="core_2d_camera_platformer" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="CBD7AEAEDCB2AD6E44EA949A" BuildableName="core_2d_camera_split_screen.app" BlueprintName="core_2d_camera_split_screen" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="1743B8257812587FB90D4904" BuildableName="core_3d_camera_first_person.app" BlueprintName="core_3d_camera_first_person" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="F6F3F0565B24B09615ECA230" BuildableName="core_3d_camera_fps.app" BlueprintName="core_3d_camera_fps" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="C455BA9B827DC02C754A2BEC" BuildableName="core_3d_camera_free.app" BlueprintName="core_3d_camera_free" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="48D48D4CEFE22C06B8112C14" BuildableName="core_3d_camera_mode.app" BlueprintName="core_3d_camera_mode" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="2B94C0389D7462F9068759F5" BuildableName="core_3d_camera_split_screen.app" BlueprintName="core_3d_camera_split_screen" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="66002E384F355CD83B433B7A" BuildableName="core_3d_picking.app" BlueprintName="core_3d_picking" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="B0AB58994960D512E1A649CE" BuildableName="core_automation_events.app" BlueprintName="core_automation_events" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="6898630F4A84D2C70B364D07" BuildableName="core_basic_screen_manager.app" BlueprintName="core_basic_screen_manager" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="C17E365F90D36AEC213129F0" BuildableName="core_basic_window.app" BlueprintName="core_basic_window" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="A8608B0C78FDB28C8027D5C4" BuildableName="core_clipboard_text.app" BlueprintName="core_clipboard_text" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="A42C7D7F506DB77EA6D6470E" BuildableName="core_compute_hash.app" BlueprintName="core_compute_hash" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="9043E76EC9098DEED66168C6" BuildableName="core_custom_frame_control.app" BlueprintName="core_custom_frame_control" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="22ACF9BCDDBC9F83F6332EF1" BuildableName="core_custom_logging.app" BlueprintName="core_custom_logging" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="45884D6CA533421B3902C515" BuildableName="core_delta_time.app" BlueprintName="core_delta_time" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="8F742FE51856477016A47AA4" BuildableName="core_directory_files.app" BlueprintName="core_directory_files" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="B05605ADDCAB64AC4CAE1EA5" BuildableName="core_drop_files.app" BlueprintName="core_drop_files" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="7ECFC2648C942EAAE5030A6D" BuildableName="core_highdpi_demo.app" BlueprintName="core_highdpi_demo" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="73CD124C305377057939E938" BuildableName="core_highdpi_testbed.app" BlueprintName="core_highdpi_testbed" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="7BDF3D2D9F672A264302FEC4" BuildableName="core_input_actions.app" BlueprintName="core_input_actions" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="FF7011C2E71B2BABBA779B80" BuildableName="core_input_gamepad.app" BlueprintName="core_input_gamepad" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="0A3D10950E87952706DC817C" BuildableName="core_input_gestures.app" BlueprintName="core_input_gestures" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="385CE2AEB059A697AA8D5C2F" BuildableName="core_input_gestures_testbed.app" BlueprintName="core_input_gestures_testbed" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="136BD773A40A91E82295022C" BuildableName="core_input_keys.app" BlueprintName="core_input_keys" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="E22CB161EF7B49D30B6E1C33" BuildableName="core_input_mouse.app" BlueprintName="core_input_mouse" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="A6220787E17C454C01098A84" BuildableName="core_input_mouse_wheel.app" BlueprintName="core_input_mouse_wheel" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="C10AFEF092D056286C74DD90" BuildableName="core_input_multitouch.app" BlueprintName="core_input_multitouch" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="C47F9A0966FF57A2C445A69B" BuildableName="core_input_virtual_controls.app" BlueprintName="core_input_virtual_controls" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="40729F3B3172912A3AF879B9" BuildableName="core_keyboard_testbed.app" BlueprintName="core_keyboard_testbed" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="10D5F09B9826AF1E2FB79DAB" BuildableName="core_monitor_detector.app" BlueprintName="core_monitor_detector" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="FC8DA32982A3662DF0742DEF" BuildableName="core_random_sequence.app" BlueprintName="core_random_sequence" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="8A2AB548B9E2615DA1C8EB36" BuildableName="core_random_values.app" BlueprintName="core_random_values" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="373CB659BBC2703E2C2FE51B" BuildableName="core_render_texture.app" BlueprintName="core_render_texture" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="CE7FE030245D026B84CC67B9" BuildableName="core_scissor_test.app" BlueprintName="core_scissor_test" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="266A309F76A06731558AAB30" BuildableName="core_screen_recording.app" BlueprintName="core_screen_recording" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="AC60FE99104FB3A8A856DC50" BuildableName="core_smooth_pixelperfect.app" BlueprintName="core_smooth_pixelperfect" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="247036635565D6BF907D5E39" BuildableName="core_storage_values.app" BlueprintName="core_storage_values" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="E3E7F5054C37D690E816610E" BuildableName="core_text_file_loading.app" BlueprintName="core_text_file_loading" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="97C2257BF18463A0174A7CEC" BuildableName="core_undo_redo.app" BlueprintName="core_undo_redo" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="D26121A3E46FC53445BEB83E" BuildableName="core_viewport_scaling.app" BlueprintName="core_viewport_scaling" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="C779AA55AFD19A22B4ECCA1B" BuildableName="core_vr_simulator.app" BlueprintName="core_vr_simulator" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="B45B8C0E6E90F9B9FE8DC916" BuildableName="core_window_flags.app" BlueprintName="core_window_flags" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="56F966FEBE01EC9D5E3EE992" BuildableName="core_window_letterbox.app" BlueprintName="core_window_letterbox" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="74C234F8201B4D97ED42D634" BuildableName="core_window_should_close.app" BlueprintName="core_window_should_close" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="24E9D264219AFB42DDD1FEC6" BuildableName="core_window_web.app" BlueprintName="core_window_web" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="0500A5CD0AF1B62CDBAD7545" BuildableName="core_world_screen.app" BlueprintName="core_world_screen" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="D927FC663307B83C1F564029" BuildableName="examples_template.app" BlueprintName="examples_template" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="AC72CD9623F7FA1128572263" BuildableName="models_animation_blend_custom.app" BlueprintName="models_animation_blend_custom" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="503AABA8A3A94CB5DC78C29D" BuildableName="models_animation_blending.app" BlueprintName="models_animation_blending" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="ED3A5DEE14377AA1E4F6F0C6" BuildableName="models_animation_gpu_skinning.app" BlueprintName="models_animation_gpu_skinning" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="70A9A2BF9E53B02C1A1E5539" BuildableName="models_animation_timing.app" BlueprintName="models_animation_timing" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="AEAA267365E4DF662D38A45F" BuildableName="models_basic_voxel.app" BlueprintName="models_basic_voxel" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="549BF9B6EDAA1C0AA883F35C" BuildableName="models_billboard_rendering.app" BlueprintName="models_billboard_rendering" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="58F236E2F158AD5C742DBC66" BuildableName="models_bone_socket.app" BlueprintName="models_bone_socket" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="DA27499984CEFD7A13CDF0A1" BuildableName="models_box_collisions.app" BlueprintName="models_box_collisions" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="A759F59ACA558F6476710C61" BuildableName="models_cubicmap_rendering.app" BlueprintName="models_cubicmap_rendering" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="D5D0DD5B3E3C1E357F0F9B05" BuildableName="models_decals.app" BlueprintName="models_decals" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="B88C6B586649BA141B3648B6" BuildableName="models_directional_billboard.app" BlueprintName="models_directional_billboard" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="2AD7D5B250848BA21E832270" BuildableName="models_first_person_maze.app" BlueprintName="models_first_person_maze" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="A97A396F0328C96BAD158332" BuildableName="models_geometric_shapes.app" BlueprintName="models_geometric_shapes" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="A5702FC4E7E097DC5908AE36" BuildableName="models_heightmap_rendering.app" BlueprintName="models_heightmap_rendering" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="4F99670A1F442C850DD55F2B" BuildableName="models_loading.app" BlueprintName="models_loading" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="248F33806309559BBCBF7539" BuildableName="models_loading_gltf.app" BlueprintName="models_loading_gltf" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="87BBD3B1914A412A116960C8" BuildableName="models_loading_iqm.app" BlueprintName="models_loading_iqm" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="9898EA60FA015BA755A980AD" BuildableName="models_loading_m3d.app" BlueprintName="models_loading_m3d" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="2F5623C9B548E138A817DFD6" BuildableName="models_loading_vox.app" BlueprintName="models_loading_vox" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="20F70B0C4A07C3031E074431" BuildableName="models_mesh_generation.app" BlueprintName="models_mesh_generation" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="76A65CE5F96A034ED2D3BDE5" BuildableName="models_mesh_picking.app" BlueprintName="models_mesh_picking" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="1CDA23E6DA75244272BCF66C" BuildableName="models_mesh_uv_painting.app" BlueprintName="models_mesh_uv_painting" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="88B39025B6E05A0CD2D0DD1B" BuildableName="models_orthographic_projection.app" BlueprintName="models_orthographic_projection" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="8E1111F5509048FD74A987EA" BuildableName="models_point_rendering.app" BlueprintName="models_point_rendering" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="643D3E20E4702859BF52EB3C" BuildableName="models_procedural_decals.app" BlueprintName="models_procedural_decals" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="B77804591520A0F136F04B0E" BuildableName="models_rlgl_solar_system.app" BlueprintName="models_rlgl_solar_system" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="14BDE740E919CE6DFBF7E9D3" BuildableName="models_rotating_cube.app" BlueprintName="models_rotating_cube" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="4A975DEC1C9816B46427D8FE" BuildableName="models_skybox_rendering.app" BlueprintName="models_skybox_rendering" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="FB0EF478D8F9644AAE606677" BuildableName="models_tesseract_view.app" BlueprintName="models_tesseract_view" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="FC525611D222298610AEFA01" BuildableName="models_textured_cube.app" BlueprintName="models_textured_cube" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="24F79A7B0E32D77A532F2E3B" BuildableName="models_waving_cubes.app" BlueprintName="models_waving_cubes" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="E461069C07C62B78775B221C" BuildableName="models_yaw_pitch_roll.app" BlueprintName="models_yaw_pitch_roll" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="A8D0E61A19192D8D8F5164F5" BuildableName="embedded_files_loading.app" BlueprintName="embedded_files_loading" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="CDD545493635E3DB5BFAFE4D" BuildableName="gl_scissor_shapes.app" BlueprintName="gl_scissor_shapes" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="0E4B2FD3E3BDC3E6D6E242BB" BuildableName="raylib_opengl_interop.app" BlueprintName="raylib_opengl_interop" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="10620FAEC5D85222F3E847FD" BuildableName="rlgl_standalone.app" BlueprintName="rlgl_standalone" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="2C34F13B128DD6EE3505D613" BuildableName="shaders_ascii_rendering.app" BlueprintName="shaders_ascii_rendering" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="F11C7F62BB4414D4D7998BF6" BuildableName="shaders_basic_lighting.app" BlueprintName="shaders_basic_lighting" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="EF092F3C5C9C876EB4384190" BuildableName="shaders_basic_pbr.app" BlueprintName="shaders_basic_pbr" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="3150B9E63E5755A6C54E2C00" BuildableName="shaders_cel_shading.app" BlueprintName="shaders_cel_shading" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="B1A93FCD9D70795EFFD13F0C" BuildableName="shaders_color_correction.app" BlueprintName="shaders_color_correction" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="B93D43748DF57B1411200F93" BuildableName="shaders_custom_uniform.app" BlueprintName="shaders_custom_uniform" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="B52F881A8369D0C7EDE42F29" BuildableName="shaders_deferred_rendering.app" BlueprintName="shaders_deferred_rendering" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="7C58C3734A2D2E8B53F8FA2D" BuildableName="shaders_depth_rendering.app" BlueprintName="shaders_depth_rendering" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="98EBF4207E99F9A2387B461F" BuildableName="shaders_depth_writing.app" BlueprintName="shaders_depth_writing" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="CD7953D5A41932B128E8EA3B" BuildableName="shaders_eratosthenes_sieve.app" BlueprintName="shaders_eratosthenes_sieve" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="DE245C63A9D3320F2ECAAC2D" BuildableName="shaders_fog_rendering.app" BlueprintName="shaders_fog_rendering" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="378952BF19FC6648AEC1D569" BuildableName="shaders_game_of_life.app" BlueprintName="shaders_game_of_life" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="F695C9EEE8F82B307D818D7B" BuildableName="shaders_hot_reloading.app" BlueprintName="shaders_hot_reloading" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="ACA46B4EF92F53C19DBE0927" BuildableName="shaders_hybrid_rendering.app" BlueprintName="shaders_hybrid_rendering" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="84801997C4BB7B8A9AB8C6D3" BuildableName="shaders_julia_set.app" BlueprintName="shaders_julia_set" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="7E2A129B85CEA7E071258E83" BuildableName="shaders_lightmap_rendering.app" BlueprintName="shaders_lightmap_rendering" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="5E6A3FA936CD1210EA0FA0C9" BuildableName="shaders_lights_bloom.app" BlueprintName="shaders_lights_bloom" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="31105F2427E3B53D380FE9DF" BuildableName="shaders_mandelbrot_set.app" BlueprintName="shaders_mandelbrot_set" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="9DDC0445A7AB556478339C2F" BuildableName="shaders_mesh_instancing.app" BlueprintName="shaders_mesh_instancing" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="32D2D5522D93A7A6B3644892" BuildableName="shaders_model_shader.app" BlueprintName="shaders_model_shader" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="56653051CDAF58D2EA27986D" BuildableName="shaders_multi_sample2d.app" BlueprintName="shaders_multi_sample2d" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="98B9E23C7997004A75878735" BuildableName="shaders_normalmap_rendering.app" BlueprintName="shaders_normalmap_rendering" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="E3AF9849299E767B066A5259" BuildableName="shaders_palette_switch.app" BlueprintName="shaders_palette_switch" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="6D174FCBB4C52E442738E4B8" BuildableName="shaders_postprocessing.app" BlueprintName="shaders_postprocessing" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="24BC7A01AFC85F5B37169B17" BuildableName="shaders_raymarching_rendering.app" BlueprintName="shaders_raymarching_rendering" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="84E72326FDFBB3470B6EC27D" BuildableName="shaders_rlgl_compute.app" BlueprintName="shaders_rlgl_compute" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="859E7169514F16D298EE37A5" BuildableName="shaders_rounded_rectangle.app" BlueprintName="shaders_rounded_rectangle" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="407C11D7FA7596B1D168A9A9" BuildableName="shaders_shadowmap_rendering.app" BlueprintName="shaders_shadowmap_rendering" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="48630B32150390F5694D4178" BuildableName="shaders_shapes_textures.app" BlueprintName="shaders_shapes_textures" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="3F9583A20B4D67F5EADF038F" BuildableName="shaders_simple_mask.app" BlueprintName="shaders_simple_mask" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="9FAB91E808154163707872D7" BuildableName="shaders_spotlight_rendering.app" BlueprintName="shaders_spotlight_rendering" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="A77C7BE5D6C120177AA2D0D8" BuildableName="shaders_texture_outline.app" BlueprintName="shaders_texture_outline" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="477C91700074C69C392ACADD" BuildableName="shaders_texture_rendering.app" BlueprintName="shaders_texture_rendering" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="71CEDE29EC245C26F6A43F7A" BuildableName="shaders_texture_tiling.app" BlueprintName="shaders_texture_tiling" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="3E1378F20540EF84AB235D0C" BuildableName="shaders_texture_waves.app" BlueprintName="shaders_texture_waves" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="7C073ACFBBDB74825557BA25" BuildableName="shaders_vertex_displacement.app" BlueprintName="shaders_vertex_displacement" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="898CD423449675847A12284D" BuildableName="shapes_ball_physics.app" BlueprintName="shapes_ball_physics" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="8B3023A4CEFB34E980EEA011" BuildableName="shapes_basic_shapes.app" BlueprintName="shapes_basic_shapes" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="F6486F2E726CD64C87C3B2F3" BuildableName="shapes_bouncing_ball.app" BlueprintName="shapes_bouncing_ball" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="1EADC1CFC28448BF10B766D1" BuildableName="shapes_bullet_hell.app" BlueprintName="shapes_bullet_hell" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="BE02D6C4A17FBAE6A779545D" BuildableName="shapes_circle_sector_drawing.app" BlueprintName="shapes_circle_sector_drawing" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="571BE107CE0896ADB9C928F2" BuildableName="shapes_clock_of_clocks.app" BlueprintName="shapes_clock_of_clocks" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="91FB4DDE541C32DA0ABB9717" BuildableName="shapes_collision_area.app" BlueprintName="shapes_collision_area" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="9CBB2D63AA473D7F2626CF37" BuildableName="shapes_colors_palette.app" BlueprintName="shapes_colors_palette" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="6F2B8E9A52CC27316D4D87D9" BuildableName="shapes_dashed_line.app" BlueprintName="shapes_dashed_line" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="327DD66199EDE5FC6DDDCFC1" BuildableName="shapes_digital_clock.app" BlueprintName="shapes_digital_clock" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="325BD8C0600F71DEF5B5FF1D" BuildableName="shapes_double_pendulum.app" BlueprintName="shapes_double_pendulum" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="5036BC2A58CC2A0B80059CBD" BuildableName="shapes_drag_puzzle.app" BlueprintName="shapes_drag_puzzle" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="D43CE6E6C27D2529F8AC866A" BuildableName="shapes_easings_ball.app" BlueprintName="shapes_easings_ball" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="8FC1346EF42DCBFAE306FDE7" BuildableName="shapes_easings_box.app" BlueprintName="shapes_easings_box" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="532F7A95D832CB7C910989D1" BuildableName="shapes_easings_rectangles.app" BlueprintName="shapes_easings_rectangles" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="9FD817A3A0624FD78ACFBA4A" BuildableName="shapes_easings_testbed.app" BlueprintName="shapes_easings_testbed" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="2A4A367767E1C5EFDBCEF6B4" BuildableName="shapes_ellipse_collision.app" BlueprintName="shapes_ellipse_collision" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="758075B357CD3B59FC5AD32F" BuildableName="shapes_following_eyes.app" BlueprintName="shapes_following_eyes" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="E12EDD78544029CA74D9DCFD" BuildableName="shapes_hilbert_curve.app" BlueprintName="shapes_hilbert_curve" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="675A142AD03EB5D628EFA40F" BuildableName="shapes_kaleidoscope.app" BlueprintName="shapes_kaleidoscope" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="D926E72121C02925EBE6352F" BuildableName="shapes_lines_bezier.app" BlueprintName="shapes_lines_bezier" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="CA7DF473F5C06A65981493B7" BuildableName="shapes_lines_drawing.app" BlueprintName="shapes_lines_drawing" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="F4AAD88D6449A6971E1B53AD" BuildableName="shapes_logo_raylib.app" BlueprintName="shapes_logo_raylib" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="BC3E7687163DB402F497225A" BuildableName="shapes_logo_raylib_anim.app" BlueprintName="shapes_logo_raylib_anim" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="A5F48DD450C24F75813F37AB" BuildableName="shapes_math_angle_rotation.app" BlueprintName="shapes_math_angle_rotation" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="4E1D56DBCBF6977FBB12D2BC" BuildableName="shapes_math_sine_cosine.app" BlueprintName="shapes_math_sine_cosine" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="5D247CC95B1C5B1668945573" BuildableName="shapes_mouse_trail.app" BlueprintName="shapes_mouse_trail" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="A9BA820E7384E4391C2F6D92" BuildableName="shapes_outlines_testbed.app" BlueprintName="shapes_outlines_testbed" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="EE195ED868FE4A3DC49CEED2" BuildableName="shapes_outlines_thickness.app" BlueprintName="shapes_outlines_thickness" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="37CF00B5594A6E0C9A702433" BuildableName="shapes_penrose_tile.app" BlueprintName="shapes_penrose_tile" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="FDDD4AA2F7DC6C2E602A0371" BuildableName="shapes_pie_chart.app" BlueprintName="shapes_pie_chart" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="49B48102350EF196330589DA" BuildableName="shapes_polygon_lines.app" BlueprintName="shapes_polygon_lines" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="70850851758453208055DAD1" BuildableName="shapes_rectangle_advanced.app" BlueprintName="shapes_rectangle_advanced" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="809C59CA6289FAA682324486" BuildableName="shapes_rectangle_scaling.app" BlueprintName="shapes_rectangle_scaling" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="AF08C7114E6AC8BBC4D41670" BuildableName="shapes_recursive_tree.app" BlueprintName="shapes_recursive_tree" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="38146A2131CCE8A52BE0044B" BuildableName="shapes_ring_drawing.app" BlueprintName="shapes_ring_drawing" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="A8DA41631C030C8B2F438B0F" BuildableName="shapes_rlgl_color_wheel.app" BlueprintName="shapes_rlgl_color_wheel" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="AAD119BF9F0FBDE115E65071" BuildableName="shapes_rlgl_triangle.app" BlueprintName="shapes_rlgl_triangle" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="FEEF07007E7233DEC3893C04" BuildableName="shapes_rounded_rectangle_drawing.app" BlueprintName="shapes_rounded_rectangle_drawing" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="24E904D04CB422388E9491D2" BuildableName="shapes_simple_particles.app" BlueprintName="shapes_simple_particles" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="4266B1A334E91FD5F0F74A4B" BuildableName="shapes_splines_drawing.app" BlueprintName="shapes_splines_drawing" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="1EAA0E82FE3EE59E11140602" BuildableName="shapes_starfield_effect.app" BlueprintName="shapes_starfield_effect" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="B23991C9BC9ECD048CC315F0" BuildableName="shapes_top_down_lights.app" BlueprintName="shapes_top_down_lights" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="A40D11DA5C456AEC5E430932" BuildableName="shapes_triangle_strip.app" BlueprintName="shapes_triangle_strip" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="3530E2414E9AFDF895304899" BuildableName="shapes_vector_angle.app" BlueprintName="shapes_vector_angle" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="C4B7DE6333C61B7970310ACE" BuildableName="text_3d_drawing.app" BlueprintName="text_3d_drawing" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="0651FB64087DCAC688196222" BuildableName="text_animations.app" BlueprintName="text_animations" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="9ED0CFEC5622977E9F44B51F" BuildableName="text_codepoints_loading.app" BlueprintName="text_codepoints_loading" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="E28518FA9CF701A34C08E37A" BuildableName="text_font_filters.app" BlueprintName="text_font_filters" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="3A05CEBB0E9697DB38A779E4" BuildableName="text_font_loading.app" BlueprintName="text_font_loading" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="5ECF36F0E47981B360644553" BuildableName="text_font_sdf.app" BlueprintName="text_font_sdf" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="92D19A84655756613559E036" BuildableName="text_font_spritefont.app" BlueprintName="text_font_spritefont" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="B6CA53B277D7DB39A2BDEAE4" BuildableName="text_format_text.app" BlueprintName="text_format_text" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="93DC7ED2F68A2DC37A181713" BuildableName="text_inline_styling.app" BlueprintName="text_inline_styling" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="7655A0C8E1C19AE984F0561B" BuildableName="text_input_box.app" BlueprintName="text_input_box" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="661B9DCCC7439CF6E537E94F" BuildableName="text_rectangle_bounds.app" BlueprintName="text_rectangle_bounds" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="7AEE8F1CA2EEBA792305FAE5" BuildableName="text_sprite_fonts.app" BlueprintName="text_sprite_fonts" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="FC1BAD5708430F279FDF0FAD" BuildableName="text_strings_management.app" BlueprintName="text_strings_management" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="DF106C2137056E7D5DB0A10C" BuildableName="text_unicode_emojis.app" BlueprintName="text_unicode_emojis" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="597A762F1A3339AE0628A59B" BuildableName="text_unicode_ranges.app" BlueprintName="text_unicode_ranges" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="9CD1E9C90067EA94C5B0090F" BuildableName="text_words_alignment.app" BlueprintName="text_words_alignment" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="5C97F541BDF2811E8D4E9EFE" BuildableName="text_writing_anim.app" BlueprintName="text_writing_anim" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="8C6E328A04FD17A253943334" BuildableName="textures_background_scrolling.app" BlueprintName="textures_background_scrolling" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="C37FB36AB9B7BFC157E0C364" BuildableName="textures_blend_modes.app" BlueprintName="textures_blend_modes" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="014963B27242FA51D1F90AE3" BuildableName="textures_bunnymark.app" BlueprintName="textures_bunnymark" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="B40AF6876AFCC410FEF4A9A0" BuildableName="textures_cellular_automata.app" BlueprintName="textures_cellular_automata" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="CFCD39A29228A08717B45A8F" BuildableName="textures_clipboard_image.app" BlueprintName="textures_clipboard_image" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="813F8A304B0D3DF1BF7F4BA2" BuildableName="textures_fog_of_war.app" BlueprintName="textures_fog_of_war" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="D66E5CAC74FCB21DD1EF3CAB" BuildableName="textures_framebuffer_rendering.app" BlueprintName="textures_framebuffer_rendering" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="68E62701F7B8872E6DEDB12F" BuildableName="textures_gif_player.app" BlueprintName="textures_gif_player" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="7450B6861C5B6A73FD444E46" BuildableName="textures_image_channel.app" BlueprintName="textures_image_channel" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="269DFCED06357FD570964219" BuildableName="textures_image_drawing.app" BlueprintName="textures_image_drawing" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="D36D33649C916CAEFEA403EB" BuildableName="textures_image_generation.app" BlueprintName="textures_image_generation" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="ECF4E05C71CF7968E8AD814F" BuildableName="textures_image_kernel.app" BlueprintName="textures_image_kernel" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="ED4FE0472282C6593DF7FD9A" BuildableName="textures_image_loading.app" BlueprintName="textures_image_loading" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="BE976F6F54E22CE5A3C0578A" BuildableName="textures_image_processing.app" BlueprintName="textures_image_processing" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="78E395CEE7F6C346A9C05BDE" BuildableName="textures_image_rotate.app" BlueprintName="textures_image_rotate" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="3C9369FEB9EE90F194806A5E" BuildableName="textures_image_text.app" BlueprintName="textures_image_text" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="BB07CA856B8523BFEC912611" BuildableName="textures_logo_raylib.app" BlueprintName="textures_logo_raylib" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="07FED5E577E1382CC76DD4AD" BuildableName="textures_magnifying_glass.app" BlueprintName="textures_magnifying_glass" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="C3F06C7861D4E8D62CE99502" BuildableName="textures_mouse_painting.app" BlueprintName="textures_mouse_painting" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="AA9C265549F51BFAB63380AE" BuildableName="textures_npatch_drawing.app" BlueprintName="textures_npatch_drawing" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="18D990922A742B1B86DC6811" BuildableName="textures_particles_blending.app" BlueprintName="textures_particles_blending" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="6A1B00FD439C7564962213D6" BuildableName="textures_polygon_drawing.app" BlueprintName="textures_polygon_drawing" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="208F1964C3979279CE7DEB25" BuildableName="textures_portal_window.app" BlueprintName="textures_portal_window" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="651F1FCE7AD68508653B1540" BuildableName="textures_raw_data.app" BlueprintName="textures_raw_data" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="95FCAED51EA1183224D03E97" BuildableName="textures_screen_buffer.app" BlueprintName="textures_screen_buffer" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="473439512948FD243D321352" BuildableName="textures_sprite_animation.app" BlueprintName="textures_sprite_animation" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="BDD5A857319DCC5B1BA4C591" BuildableName="textures_sprite_button.app" BlueprintName="textures_sprite_button" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="1B175EC0C18CEF690CB47E8C" BuildableName="textures_sprite_explosion.app" BlueprintName="textures_sprite_explosion" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="34AE94FC57E921042D73329B" BuildableName="textures_sprite_stacking.app" BlueprintName="textures_sprite_stacking" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="1DEDE9C99F4D4208B19E9D74" BuildableName="textures_srcrec_dstrec.app" BlueprintName="textures_srcrec_dstrec" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="4FF527899EC89183B202BB73" BuildableName="textures_textured_curve.app" BlueprintName="textures_textured_curve" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="6C0E279AE8DFA066E5297539" BuildableName="textures_tiled_drawing.app" BlueprintName="textures_tiled_drawing" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="6F327863A3D5C00E9E01CE01" BuildableName="textures_to_image.app" BlueprintName="textures_to_image" ReferencedContainer="container:raylib.xcodeproj" />
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <AnalyzeAction buildConfiguration="Debug" />
+   <ArchiveAction buildConfiguration="Release" revealArchiveInOrganizer="YES" />
+</Scheme>

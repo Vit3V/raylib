@@ -16,8 +16,6 @@
 #import <UIKit/UIGestureRecognizerSubclass.h>
 #endif
 
-extern int RaylibGameMain(void);
-
 enum { AppleInputCapacity = 2048, AppleControllerCount = 4, AppleControllerButtons = 18 };
 static _Thread_local void *currentHost;
 static __weak AppleGameHost *activeHost;
@@ -31,6 +29,8 @@ static __weak AppleGameHost *activeHost;
 
 @interface AppleGameHost ()
 {
+    int (*_gameEntry)(void);
+    BOOL _manualFrameControl;
     NSCondition *_condition;
     AppleFrame _pendingFrame;
     AppleFrame _initialFrame;
@@ -92,6 +92,7 @@ static __weak AppleGameHost *activeHost;
 - (BOOL)readInput:(AppleInputEvent *)event;
 - (BOOL)waitFrame:(double)minimumTimestamp frame:(AppleFrame *)frame;
 - (BOOL)shouldStop;
+- (BOOL)manualFrameControl;
 - (void)present;
 - (void *)windowHandle;
 - (void)windowAction:(AppleWindowAction)action x:(float)x y:(float)y text:(nullable NSString *)text;
@@ -99,16 +100,21 @@ static __weak AppleGameHost *activeHost;
 
 @implementation AppleGameHost
 
-- (instancetype)init
+- (instancetype)initWithGameEntry:(int (*)(void))gameEntry
+              manualFrameControl:(BOOL)manualFrameControl
 {
     if ((self = [super init]))
     {
+        _gameEntry = gameEntry;
+        _manualFrameControl = manualFrameControl;
         _condition = [NSCondition new];
         _observers = [NSMutableArray new];
         _resetClock = YES;
     }
     return self;
 }
+
+- (BOOL)manualFrameControl { return _manualFrameControl; }
 
 - (void)dealloc
 {
@@ -685,7 +691,7 @@ static __weak AppleGameHost *activeHost;
                 if ([self waitFrame:0 frame:&_initialFrame])
                 {
                     _hasInitialFrame = YES;
-                    int result = RaylibGameMain();
+                    int result = _gameEntry();
                     if (IsWindowReady()) CloseWindow();
 #if TARGET_OS_OSX
                     completed = result == 0;
@@ -1151,6 +1157,7 @@ static int MacKey(unsigned short code)
 static AppleGameHost *CurrentHost(void) { return (__bridge AppleGameHost *)currentHost; }
 bool AppleWaitFrame(double minimumTimestamp, AppleFrame *frame) { return [CurrentHost() waitFrame:minimumTimestamp frame:frame]; }
 bool AppleStopRequested(void) { return [CurrentHost() shouldStop]; }
+bool AppleUsesManualFrameControl(void) { return [CurrentHost() manualFrameControl]; }
 void ApplePresentFrame(void) { [CurrentHost() present]; }
 bool AppleNextInput(AppleInputEvent *event) { return [CurrentHost() readInput:event]; }
 void *AppleWindowHandle(void) { return [CurrentHost() windowHandle]; }

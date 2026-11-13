@@ -109,6 +109,8 @@ raylib is also available via multiple package managers on multiple OS distributi
  - [Working for Web (HTML5)](https://github.com/raysan5/raylib/wiki/Working-for-Web-(HTML5))
  - [Working anywhere with CMake](https://github.com/raysan5/raylib/wiki/Working-with-CMake)
 
+For Swift Package Manager and SwiftUI projects on macOS, iOS, and tvOS, see the [Apple platform guide](projects/Xcode/README.md).
+
 *Note that the Wiki is open to edits, if you find some issues while building raylib for your target platform, feel free to edit the Wiki or open an issue related to it.*
 
 #### Setup raylib with multiple IDEs

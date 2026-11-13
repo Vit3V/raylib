@@ -1,21 +1,33 @@
 import SwiftUI
 import UniformTypeIdentifiers
+import CRaylib.AppleHost
 
-@_cdecl("RaylibRunSwiftUIApp")
-func raylibRunSwiftUIApp() {
+/// Starts the SwiftUI app and calls the game on its rendering thread.
+@MainActor
+public func runRaylibApp(_ game: @escaping @convention(c) () -> Int32, manualFrameControl: Bool = false) {
+    RaylibApp.makeSession = { GameSession(game: game, manualFrameControl: manualFrameControl) }
     RaylibApp.main()
 }
 
+@_cdecl("RaylibRunSwiftUIApp")
+@MainActor
+func raylibRunSwiftUIApp(_ game: @escaping @convention(c) () -> Int32, _ manualFrameControl: Bool) {
+    runRaylibApp(game, manualFrameControl: manualFrameControl)
+}
+
+@MainActor
 private struct RaylibApp: App {
+    static var makeSession: (() -> GameSession)?
+
     var body: some Scene {
 #if os(macOS)
         Window(Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String ?? "raylib", id: "game") {
-            GameContent()
+            GameContent(session: Self.makeSession!())
         }
         .defaultSize(width: 800, height: 450)
 #else
         WindowGroup {
-            GameContent()
+            GameContent(session: Self.makeSession!())
         }
 #endif
     }
@@ -23,13 +35,21 @@ private struct RaylibApp: App {
 
 @MainActor
 private final class GameSession: ObservableObject {
-    let host = AppleGameHost()
+    let host: AppleGameHost
     @Published var failure: String?
+
+    init(game: @escaping @convention(c) () -> Int32, manualFrameControl: Bool) {
+        host = AppleGameHost(gameEntry: game, manualFrameControl: manualFrameControl)
+    }
 }
 
 private struct GameContent: View {
     @Environment(\.scenePhase) private var scenePhase
-    @StateObject private var session = GameSession()
+    @StateObject private var session: GameSession
+
+    init(session: @autoclosure @escaping () -> GameSession) {
+        _session = StateObject(wrappedValue: session())
+    }
 
     var body: some View {
         if let message = session.failure ?? Bundle.main.object(forInfoDictionaryKey: "RaylibUnavailable") as? String,

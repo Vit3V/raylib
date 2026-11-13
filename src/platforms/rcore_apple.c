@@ -254,7 +254,7 @@ bool WindowShouldClose(void)
         }
         appleNeedsFrame = false;
 #if !SUPPORT_CUSTOM_FRAME_CONTROL
-        PollInputEvents();
+        if (!AppleUsesManualFrameControl()) PollInputEvents();
 #endif
     }
     bool requested = CORE.Window.shouldClose;

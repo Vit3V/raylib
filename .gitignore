@@ -91,6 +91,8 @@ xcschememanagement.plist
 ._.*
 xcuserdata/
 DerivedData/
+/.build/
+/.swiftpm/
 
 # VSCode project
 .vscode

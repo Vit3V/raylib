@@ -1,0 +1,9 @@
+module CRaylib {
+    header "CRaylib.h"
+    export *
+
+    explicit module AppleHost {
+        requires objc
+        header "../../../projects/Xcode/AppleAppSupport/AppleGameHost.h"
+    }
+}

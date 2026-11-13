@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AppleGameHost : NSObject
 @property (nonatomic, copy, nullable) void (^reportError)(NSString *);
 
+- (instancetype)initWithGameEntry:(int (*)(void))gameEntry
+              manualFrameControl:(BOOL)manualFrameControl;
+- (instancetype)init NS_UNAVAILABLE;
+
 #if TARGET_OS_OSX
 - (NSView *)makeView;
 #else

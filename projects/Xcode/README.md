@@ -1,10 +1,10 @@
 # raylib with SwiftUI
 
-Open **raylib_game.xcodeproj** directly in Xcode for a blank app. Its **raylib_game** scheme builds and links the `raylib` and `RaylibAppleHost` static library targets from the sibling **raylib.xcodeproj**. Open **raylib.xcodeproj** to run the examples or build `libraylib.a` with the **raylib** scheme. Choose a Mac, iPhone, iPad, Apple TV, or simulator destination. Device builds need a signing team. The minimum versions are macOS 14, iOS/iPadOS 17, and tvOS 17.
+Open **raylib_game.xcodeproj** directly in Xcode for a blank app. Its **raylib_game** scheme uses the `RaylibAppleHost` product from the local Swift package at the repository root. Open **raylib.xcodeproj** to run the examples or build `libraylib.a` with the **raylib** scheme. Choose a Mac, iPhone, iPad, Apple TV, or simulator destination. Device builds need a signing team. The minimum versions are macOS 14, iOS/iPadOS 17, and tvOS 17.
 
 ## Bring a C game
 
-Replace `Game.c` with the game's `int main(void)` source. Keep the calls to `InitWindow()`, `WindowShouldClose()`, `BeginDrawing()`, `EndDrawing()`, and `CloseWindow()`. The source with `main` needs the existing per-file `-Dmain=RaylibGameMain` flag. Add any other C sources to the app target without that flag. Keep the two project bundles together and preserve their relative paths to `src` and `AppleAppSupport`, or update those references in Xcode.
+Replace `Game.c` with the game's `int main(void)` source. Keep the calls to `InitWindow()`, `WindowShouldClose()`, `BeginDrawing()`, `EndDrawing()`, and `CloseWindow()`. The source with `main` needs the existing per-file `-Dmain=RaylibGameMain` flag. Add any other C sources to the app target without that flag. Keep the checkout layout so the project's relative package and launcher references resolve.
 
 The C entry point and OpenGL calls run on the same rendering thread. Keep graphics and raylib input calls on that thread. Each iteration should check `WindowShouldClose()` so the host can pause and stop the loop at a frame boundary. The project hosts one active raylib surface per process. SwiftUI manages the window and app lifecycle.
 
@@ -16,10 +16,34 @@ Saves and screenshots go into the app's writable directory in Application Suppor
 
 ## Link from another Xcode project
 
-1. Add **raylib.xcodeproj** to your project navigator as a project reference.
-2. In your app target's **Build Phases**, add **RaylibAppleHost** and **raylib** under **Target Dependencies**, then add **libRaylibAppleHost.a** and **libraylib.a** under **Link Binary With Libraries**. The Apple raylib backend uses the host for windowing, input, and presentation.
-3. Add raylib's `src` directory to **Header Search Paths**. Copy the platform-specific **Other Linker Flags** and **Library Search Paths** from the **raylib_game** target so the app can link the Apple frameworks and Swift runtime it uses.
-4. For a C game with the provided SwiftUI host, add `AppleAppSupport/Launch.c` to the app target and set `-Dmain=RaylibGameMain` on the game source that defines `main`. Use the template's platform-specific Info.plist settings for the same app lifecycle and device support.
+1. In Xcode, choose **File → Add Package Dependencies** and enter the fork's Git URL, or choose **Add Local** and select the checkout containing `Package.swift`.
+2. Add the **RaylibAppleHost** product to the app target. It includes the raylib C library and its Apple framework dependencies. Choose **raylib** if you only need the C API. The Apple windowing backend uses the host to create and run a window.
+3. For a C game, add `AppleAppSupport/Launch.c` to the app target and apply the per-file `-Dmain=RaylibGameMain` flag to the game entry point. Use the template's platform-specific Info.plist settings for the same app lifecycle and device support. C code includes `raylib.h`. The launcher includes `RaylibAppleHost.h` and passes the C game function to `RaylibRunSwiftUIApp`.
+
+For a Swift game, give the app a Swift entry point and call `runRaylibApp` on the main actor. The game function runs on the rendering thread and must be noncapturing.
+
+```swift
+import CRaylib
+import RaylibAppleHost
+
+@main
+struct Game {
+    @MainActor static func main() {
+        runRaylibApp {
+            InitWindow(800, 450, "Swift raylib game")
+            while !WindowShouldClose() {
+                BeginDrawing()
+                ClearBackground(CRaylib.Color(r: 245, g: 245, b: 245, a: 255))
+                EndDrawing()
+            }
+            CloseWindow()
+            return 0
+        }
+    }
+}
+```
+
+Games that explicitly poll and present frames can pass `manualFrameControl: true` in Swift or `true` as the second argument to `RaylibRunSwiftUIApp` in C. The `core_custom_frame_control` example demonstrates the manual loop.
 
 ## Examples and platform behavior
 

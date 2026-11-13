@@ -67,6 +67,7 @@ typedef enum AppleWindowAction {
 // Called exclusively on the C entry point's rendering thread.
 bool AppleWaitFrame(double minimumTimestamp, AppleFrame *frame);
 bool AppleStopRequested(void);
+bool AppleUsesManualFrameControl(void);
 void ApplePresentFrame(void);
 bool AppleNextInput(AppleInputEvent *event);
 void *AppleWindowHandle(void);

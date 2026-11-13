@@ -928,7 +928,7 @@ void EndDrawing(void)
 #endif
 
 #if defined(PLATFORM_APPLE_SWIFTUI) && !SUPPORT_CUSTOM_FRAME_CONTROL
-    SwapScreenBuffer();
+    if (!AppleUsesManualFrameControl()) SwapScreenBuffer();
 #endif
     CORE.Time.frameCounter++;
 }
@@ -1612,6 +1612,9 @@ void SetTargetFPS(int fps)
 // NOTE: Calculating an average framerate
 int GetFPS(void)
 {
+#if defined(PLATFORM_APPLE_SWIFTUI) && !SUPPORT_CUSTOM_FRAME_CONTROL
+    if (AppleUsesManualFrameControl()) return 0;
+#endif
     int fps = 0;
 
 #if !SUPPORT_CUSTOM_FRAME_CONTROL

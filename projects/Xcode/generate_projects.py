@@ -10,7 +10,6 @@ import xml.etree.ElementTree as ET
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
-RAYLIB_SOURCES = ("rcore.c", "rshapes.c", "rtextures.c", "rtext.c", "rmodels.c", "raudio.c")
 CONFIGURATIONS = ("Debug", "Release")
 
 COMMON = {
@@ -37,12 +36,23 @@ COMMON = {
     "RAYLIB_GRAPHICS[sdk=appletv*]": "GRAPHICS_API_OPENGL_ES3",
 }
 
-FRAMEWORKS = {
-    "macosx": ("AppKit", "OpenGL", "ApplicationServices", "CoreAudio", "IOKit"),
-    "iphone": ("UIKit", "OpenGLES"),
-    "appletv": ("UIKit", "OpenGLES"),
+SIGNING_OVERRIDES = {
+    "audio_amp_envelope": {"DEVELOPMENT_TEAM": ""},
+    "core_2d_camera_platformer": {
+        "CODE_SIGN_IDENTITY": "Apple Development",
+        "CODE_SIGN_STYLE": "Automatic",
+        "DEVELOPMENT_TEAM": "",
+        "PROVISIONING_PROFILE_SPECIFIER": "",
+    },
+    "core_3d_camera_free": {
+        "CODE_SIGN_IDENTITY[sdk=macosx*]": "Apple Development",
+        "DEVELOPMENT_TEAM": "",
+        "PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]": "org.raylib.core-3d-camera-free-ios",
+    },
+    "core_input_gestures": {"DEVELOPMENT_TEAM": ""},
 }
-SHARED_FRAMEWORKS = ("Foundation", "GameController", "QuartzCore", "AudioToolbox", "AVFoundation", "CoreFoundation")
+
+SCHEMES_WITH_TEST_ACTION = {"raylib_game", "core_2d_camera_platformer", "core_3d_camera_free"}
 
 UNAVAILABLE = {
     "shaders_rlgl_compute": {
@@ -92,8 +102,8 @@ class Project:
         self.apps = []
         self.references = {}
         self.products = []
-        self.project_references = []
         self.root_id = self.identifier("project")
+        self.package = self.add("XCLocalSwiftPackageReference", "raylib", relativePath="../..")
 
     def identifier(self, name):
         return sha1(f"{self.name}/{name}".encode()).hexdigest()[:24].upper()
@@ -138,7 +148,7 @@ class Project:
             fields["settings"] = {"COMPILER_FLAGS": flags}
         return self.add("PBXBuildFile", f"{target}/{path}", **fields)
 
-    def target(self, name, sources, settings, libraries=(), resources=None, library_project=None):
+    def target(self, name, sources, settings, package_product, resources=None, platform_filters=()):
         app = "PRODUCT_BUNDLE_IDENTIFIER" in settings
         product_name = f"{name}.app" if app else f"lib{name}.a"
         product = self.add("PBXFileReference", "product/" + name, path=product_name,
@@ -148,34 +158,14 @@ class Project:
         sources_phase = self.add("PBXSourcesBuildPhase", name, buildActionMask=2147483647,
                                  files=[self.build_file(name, path, flags) for path, flags in sources],
                                  runOnlyForDeploymentPostprocessing=0)
-        frameworks = []
-        dependencies = []
-        portal = self.root_id
-        if library_project is not None:
-            portal = self.file(f"{library_project.name}.xcodeproj", "wrapper.pb-project")
-        remote_products = []
-        library_objects = (library_project or self).objects
-        for target_id, product_id in libraries:
-            library_name = library_objects[target_id]["name"]
-            product_ref = product_id
-            if library_project is not None:
-                product_proxy = self.add("PBXContainerItemProxy", f"product/{product_id}", containerPortal=portal,
-                                         proxyType=2, remoteGlobalIDString=product_id, remoteInfo=library_name)
-                product_ref = self.add("PBXReferenceProxy", product_id, fileType="archive.ar",
-                                       path=library_objects[product_id]["path"], remoteRef=product_proxy,
-                                       sourceTree="BUILT_PRODUCTS_DIR")
-                remote_products.append(product_ref)
-            frameworks.append(self.add("PBXBuildFile", f"{name}/{product_id}", fileRef=product_ref))
-            proxy = self.add("PBXContainerItemProxy", f"{name}/{target_id}", containerPortal=portal,
-                             proxyType=1, remoteGlobalIDString=target_id, remoteInfo=library_name)
-            target_reference = {"target": target_id} if library_project is None else {"name": library_name}
-            dependencies.append(self.add("PBXTargetDependency", f"{name}/{target_id}", targetProxy=proxy, **target_reference))
-        if library_project is not None:
-            product_group = self.add("PBXGroup", f"products/{library_project.name}", name="Products",
-                                     children=remote_products, sourceTree="<group>")
-            self.project_references.append({"ProductGroup": product_group, "ProjectRef": portal})
+        package_dependency = self.add(
+            "XCSwiftPackageProductDependency", f"{name}/{package_product}",
+            package=self.package, productName=package_product,
+        )
+        filters = {"platformFilters": platform_filters} if platform_filters else {}
+        link = self.add("PBXBuildFile", f"{name}/{package_product}", productRef=package_dependency, **filters)
         framework_phase = self.add("PBXFrameworksBuildPhase", name, buildActionMask=2147483647,
-                                   files=frameworks, runOnlyForDeploymentPostprocessing=0)
+                                   files=[link], runOnlyForDeploymentPostprocessing=0)
         phases = [sources_phase, framework_phase]
         if resources:
             phases.append(self.add("PBXCopyFilesBuildPhase", name, buildActionMask=2147483647,
@@ -185,7 +175,8 @@ class Project:
         target = self.add("PBXNativeTarget", name, name=name, productName=name, productReference=product,
                           productType="com.apple.product-type.application" if app else "com.apple.product-type.library.static",
                           buildConfigurationList=self.configurations(name, {"PRODUCT_NAME": name, **settings}),
-                          buildPhases=phases, buildRules=[], dependencies=dependencies)
+                          buildPhases=phases, buildRules=[], dependencies=[],
+                          packageProductDependencies=[package_dependency])
         self.targets.append(target)
         if app:
             self.apps.append((name, target, product_name))
@@ -207,11 +198,28 @@ class Project:
                                   buildForProfiling="YES", buildForArchiving="YES", buildForAnalyzing="YES")
             reference(entry, app)
         if launchable:
+            has_test_action = apps[0][0] in SCHEMES_WITH_TEST_ACTION
+            debugger = "Xcode.DebuggerFoundation.Debugger.LLDB"
+            launcher = "Xcode.DebuggerFoundation.Launcher.LLDB"
+            if has_test_action:
+                ET.SubElement(scheme, "TestAction", buildConfiguration="Debug", selectedDebuggerIdentifier=debugger,
+                              selectedLauncherIdentifier=launcher, shouldUseLaunchSchemeArgsEnv="YES",
+                              shouldAutocreateTestPlan="YES")
             launch = ET.SubElement(scheme, "LaunchAction", buildConfiguration="Debug",
-                                   selectedDebuggerIdentifier="Xcode.DebuggerFoundation.Debugger.LLDB",
-                                   selectedLauncherIdentifier="Xcode.DebuggerFoundation.Launcher.LLDB", launchStyle="0")
+                                   selectedDebuggerIdentifier=debugger, selectedLauncherIdentifier=launcher, launchStyle="0")
+            if has_test_action:
+                launch.attrib.update({
+                    "useCustomWorkingDirectory": "NO", "ignoresPersistentStateOnLaunch": "NO",
+                    "debugDocumentVersioning": "YES", "debugServiceExtension": "internal",
+                    "allowLocationSimulation": "YES",
+                })
             reference(ET.SubElement(launch, "BuildableProductRunnable", runnableDebuggingMode="0"), apps[0])
             profile = ET.SubElement(scheme, "ProfileAction", buildConfiguration="Release")
+            if has_test_action:
+                profile.attrib.update({
+                    "shouldUseLaunchSchemeArgsEnv": "YES", "savedToolIdentifier": "",
+                    "useCustomWorkingDirectory": "NO", "debugDocumentVersioning": "YES",
+                })
             reference(ET.SubElement(profile, "BuildableProductRunnable", runnableDebuggingMode="0"), apps[0])
         ET.SubElement(scheme, "AnalyzeAction", buildConfiguration="Debug")
         ET.SubElement(scheme, "ArchiveAction", buildConfiguration="Release", revealArchiveInOrganizer="YES")
@@ -231,8 +239,7 @@ class Project:
             "mainGroup": root, "productRefGroup": products, "projectDirPath": "",
             "projectRoot": "", "targets": self.targets,
         }
-        if self.project_references:
-            self.objects[self.root_id]["projectReferences"] = self.project_references
+        self.objects[self.root_id]["packageReferences"] = [self.package]
         bundle = HERE / f"{self.name}.xcodeproj"
         project = {"archiveVersion": 1, "classes": {}, "objectVersion": 56,
                    "objects": self.objects, "rootObject": self.root_id}
@@ -243,29 +250,7 @@ class Project:
         }
 
 
-def library(project, name, custom=False):
-    sources = [(f"../../src/{source}", "-x objective-c -fno-objc-arc" if source == "raudio.c" else "")
-               for source in RAYLIB_SOURCES]
-    definitions = ["$(inherited)", "PLATFORM_APPLE_SWIFTUI", "$(RAYLIB_GRAPHICS)", "GL_SILENCE_DEPRECATION", "GLES_SILENCE_DEPRECATION"]
-    if custom:
-        definitions.append("SUPPORT_CUSTOM_FRAME_CONTROL=1")
-    return project.target(name, sources, {
-        "GCC_PREPROCESSOR_DEFINITIONS": definitions,
-        "OTHER_CFLAGS": ["$(inherited)", "-Wno-macro-redefined"],
-        "SKIP_INSTALL": "YES",
-    })
-
-
-def host(project):
-    project.file("AppleAppSupport/AppleGameHost.h")
-    return project.target("RaylibAppleHost", [("AppleAppSupport/AppleGameHost.m", ""), ("AppleAppSupport/ContentView.swift", "")], {
-        "SWIFT_OBJC_BRIDGING_HEADER": "$(SRCROOT)/AppleAppSupport/AppleGameHost.h",
-        "GCC_PREPROCESSOR_DEFINITIONS": ["$(inherited)", "GL_SILENCE_DEPRECATION", "GLES_SILENCE_DEPRECATION"],
-        "SKIP_INSTALL": "YES",
-    })
-
-
-def application(project, name, source, libraries, resources=None, library_project=None):
+def application(project, name, source, resources=None):
     bundle_id = "org.raylib." + name.lower().replace("_", "-")
     settings = {
         "PRODUCT_BUNDLE_IDENTIFIER": bundle_id,
@@ -289,29 +274,33 @@ def application(project, name, source, libraries, resources=None, library_projec
                                          "$(RAYLIB_EXAMPLE_PLATFORM)", "GL_SILENCE_DEPRECATION", "GLES_SILENCE_DEPRECATION"],
         "RAYLIB_EXAMPLE_PLATFORM[sdk=macosx*]": "PLATFORM_DESKTOP",
     }
-    for sdk, frameworks in FRAMEWORKS.items():
-        settings[f"OTHER_LDFLAGS[sdk={sdk}*]"] = ["$(inherited)", *(
-            argument for framework in (*SHARED_FRAMEWORKS, *frameworks) for argument in ("-framework", framework)
-        )]
+    settings.update(SIGNING_OVERRIDES.get(name, {}))
     for sdk, message in UNAVAILABLE.get(name, {}).items():
         key = "RAYLIB_UNAVAILABLE"
         settings[key if sdk == "all" else f"{key}[sdk={sdk}*]"] = message
 
-    sources = [("AppleAppSupport/Launch.c", "")]
+    launch_flags = "-DRAYLIB_MANUAL_FRAME_CONTROL=1" if name == "core_custom_frame_control" else ""
+    sources = [("AppleAppSupport/Launch.c", launch_flags)]
+    platform_filters = ()
     if name == "rlgl_standalone":
         sources.extend([("AppleAppSupport/StandaloneExample.c", ""), ("AppleAppSupport/StandaloneGLFW.m", "-fno-objc-arc")])
         settings["EXCLUDED_SOURCE_FILE_NAMES[sdk=macosx*]"] = "Launch.c"
+        settings["OTHER_LDFLAGS[sdk=macosx*]"] = ["$(inherited)", *(
+            argument for framework in ("AppKit", "OpenGL", "CoreFoundation", "IOKit", "QuartzCore")
+            for argument in ("-framework", framework)
+        )]
+        platform_filters = ("ios", "ios-simulator", "tvos", "tvos-simulator")
     else:
         sources.append((source, "-Dmain=RaylibGameMain"))
-    project.target(name, sources, settings, libraries=libraries, resources=resources, library_project=library_project)
+    project.target(name, sources, settings, "RaylibAppleHost", resources, platform_filters)
 
 
 def build_projects():
     examples = Project("raylib")
-    shared_host = host(examples)
-    standard = library(examples, "raylib")
+    standard = examples.target(
+        "raylib", [("AppleAppSupport/Archive.c", "")], {"SKIP_INSTALL": "YES"}, "raylib",
+    )
     examples.schemes["raylib"] = examples.scheme([("raylib", standard[0], "libraylib.a")], launchable=False)
-    manual = library(examples, "RaylibAppleManualFrames", custom=True)
     sources = sorted((*ROOT.glob("examples/*.c"), *ROOT.glob("examples/*/*.c")))
     names = set()
     for source in sources:
@@ -321,12 +310,11 @@ def build_projects():
         names.add(name)
         resources = source.parent / "resources"
         application(examples, name, "../../" + str(source.relative_to(ROOT)),
-                    (shared_host, manual if name == "core_custom_frame_control" else standard),
                     "../../" + str(resources.relative_to(ROOT)) if resources.is_dir() else None)
     examples.schemes["All Examples"] = examples.scheme(examples.apps, launchable=False)
 
     template = Project("raylib_game")
-    application(template, "raylib_game", "Game.c", (shared_host, standard), library_project=examples)
+    application(template, "raylib_game", "Game.c")
     return {**template.files(), **examples.files()}, len(names)
 
 

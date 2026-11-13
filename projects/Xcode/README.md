@@ -10,7 +10,9 @@ The C entry point and OpenGL calls run on the same rendering thread. Keep graphi
 
 The width and height passed to `InitWindow()` define the logical canvas. The host fits that canvas into the SwiftUI view and maps pointer and touch coordinates back to it. Use `GetRenderWidth()` and `GetRenderHeight()` for the drawable's physical pixel dimensions. `SetTargetFPS()` caps the display-synchronized loop, subject to the display's cadence.
 
-Add a folder named `resources` to the app's **Copy Bundle Resources** phase as a folder reference. The host makes it available at `resources/` relative to the C working directory. Saves and screenshots go into the app's writable directory in Application Support on macOS and iOS, or Caches on tvOS. The hot-reload example copies its assets there so you can edit `resources/shaders/glsl330/reload.fs` on macOS or `glsl300/reload.fs` on UIKit.
+Add your `resources` folder as a folder reference, then add it to a **Copy Files** build phase with **Resources** as the destination and `RaylibAssets` as the subpath. The host makes the folder available at `resources/` relative to the C working directory. On a case-insensitive Mac volume, placing `resources` directly at the root of an iOS or tvOS app can make Simulator fail to read its bundle ID. If an existing build still has that folder at its root, use **Product → Clean Build Folder** in Xcode and rebuild.
+
+Saves and screenshots go into the app's writable directory in Application Support on macOS and iOS, or Caches on tvOS. The hot-reload example copies its assets there so you can edit `resources/shaders/glsl330/reload.fs` on macOS or `resources/shaders/glsl300/reload.fs` on UIKit.
 
 ## Link from another Xcode project
 

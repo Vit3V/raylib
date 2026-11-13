@@ -2,9 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>RaylibUnavailable</key>
-    <string>$(RAYLIB_UNAVAILABLE)</string>
-    <key>RaylibEditableResources</key>
-    <string>$(RAYLIB_EDITABLE_RESOURCES)</string>
+	<key>RaylibEditableResources</key>
+	<string>$(RAYLIB_EDITABLE_RESOURCES)</string>
+	<key>RaylibUnavailable</key>
+	<string>$(RAYLIB_UNAVAILABLE)</string>
 </dict>
 </plist>

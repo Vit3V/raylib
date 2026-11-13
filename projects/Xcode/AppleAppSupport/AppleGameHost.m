@@ -638,7 +638,9 @@ static __weak AppleGameHost *activeHost;
     NSURL *work = [root URLByAppendingPathComponent:bundle.bundleIdentifier ?: @"raylib" isDirectory:YES];
     if (![files createDirectoryAtURL:work withIntermediateDirectories:YES attributes:nil error:error]) return NO;
 
-    NSURL *assets = [bundle.resourceURL URLByAppendingPathComponent:@"resources" isDirectory:YES];
+    NSURL *assets = [bundle.resourceURL URLByAppendingPathComponent:@"RaylibAssets/resources" isDirectory:YES];
+    if (![files fileExistsAtPath:assets.path])
+        assets = [bundle.resourceURL URLByAppendingPathComponent:@"resources" isDirectory:YES];
     NSURL *localAssets = [work URLByAppendingPathComponent:@"resources" isDirectory:YES];
     BOOL editable = [[bundle objectForInfoDictionaryKey:@"RaylibEditableResources"] boolValue];
     NSURL *existingLink = [files destinationOfSymbolicLinkAtPath:localAssets.path error:NULL] == nil? nil : localAssets;

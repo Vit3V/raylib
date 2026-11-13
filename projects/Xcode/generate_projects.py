@@ -178,7 +178,8 @@ class Project:
                                    files=frameworks, runOnlyForDeploymentPostprocessing=0)
         phases = [sources_phase, framework_phase]
         if resources:
-            phases.append(self.add("PBXResourcesBuildPhase", name, buildActionMask=2147483647,
+            phases.append(self.add("PBXCopyFilesBuildPhase", name, buildActionMask=2147483647,
+                                   dstPath="RaylibAssets", dstSubfolderSpec=7, name="Copy Raylib Assets",
                                    files=[self.build_file(name, resources, kind="folder")],
                                    runOnlyForDeploymentPostprocessing=0))
         target = self.add("PBXNativeTarget", name, name=name, productName=name, productReference=product,

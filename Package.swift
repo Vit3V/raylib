@@ -11,9 +11,9 @@ let package = Package(
     targets: [
         .target(
             name: "CRaylib",
-            path: "SwiftPackage/CRaylib",
+            path: "projects/SwiftPackage/CRaylib",
             cSettings: [
-                .headerSearchPath("../../src"),
+                .headerSearchPath("../../../src"),
                 .define("PLATFORM_APPLE_SWIFTUI"),
                 .define("GRAPHICS_API_OPENGL_33", .when(platforms: [.macOS])),
                 .define("GRAPHICS_API_OPENGL_ES3", .when(platforms: [.iOS, .tvOS])),

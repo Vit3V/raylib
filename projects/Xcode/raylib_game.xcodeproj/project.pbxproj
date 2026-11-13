@@ -13,16 +13,16 @@
 			includeInIndex = 0;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		0CC4B75560B08000BEC6BBD2 = {
+		300EFC2A1E537591FC167F6C = {
 			isa = PBXFileReference;
-			path = Shared/Launch.c;
+			path = AppleAppSupport/Launch.c;
 			name = Launch.c;
 			sourceTree = SOURCE_ROOT;
 			lastKnownFileType = sourcecode.c.c;
 		};
-		065863364CB2CB9BA8BD0697 = {
+		A98F074B85D665C29D88AD25 = {
 			isa = PBXBuildFile;
-			fileRef = 0CC4B75560B08000BEC6BBD2;
+			fileRef = 300EFC2A1E537591FC167F6C;
 		};
 		F7F0C31DE31CC939A711DB58 = {
 			isa = PBXFileReference;
@@ -42,7 +42,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				065863364CB2CB9BA8BD0697,
+				A98F074B85D665C29D88AD25,
 				13711B13A2028A249FD11F9F,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,8 +139,8 @@
 				PRODUCT_NAME = raylib_game;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.raylib.raylib-game";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/Shared/Info.plist";
-				"INFOPLIST_FILE[sdk=appletv*]" = "$(SRCROOT)/Shared/Info-tvOS.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/AppleAppSupport/Info.plist";
+				"INFOPLIST_FILE[sdk=appletv*]" = "$(SRCROOT)/AppleAppSupport/Info-tvOS.plist";
 				RAYLIB_UNAVAILABLE = "";
 				RAYLIB_EDITABLE_RESOURCES = NO;
 				INFOPLIST_KEY_CFBundleDisplayName = raylib_game;
@@ -236,8 +236,8 @@
 				PRODUCT_NAME = raylib_game;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.raylib.raylib-game";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/Shared/Info.plist";
-				"INFOPLIST_FILE[sdk=appletv*]" = "$(SRCROOT)/Shared/Info-tvOS.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/AppleAppSupport/Info.plist";
+				"INFOPLIST_FILE[sdk=appletv*]" = "$(SRCROOT)/AppleAppSupport/Info-tvOS.plist";
 				RAYLIB_UNAVAILABLE = "";
 				RAYLIB_EDITABLE_RESOURCES = NO;
 				INFOPLIST_KEY_CFBundleDisplayName = raylib_game;
@@ -352,16 +352,16 @@
 				9ABED38B3A8D8A0E22878833,
 			);
 		};
-		B952359E92786935E1D49A00 = {
+		A36FFA2E8152242987F44736 = {
 			isa = PBXFileReference;
-			path = Shared/Info.plist;
+			path = AppleAppSupport/Info.plist;
 			name = Info.plist;
 			sourceTree = SOURCE_ROOT;
 			lastKnownFileType = text.plist.xml;
 		};
-		6E52FED4A28A3E76B27004E0 = {
+		778E674058E0BA53E1BB75EB = {
 			isa = PBXFileReference;
-			path = "Shared/Info-tvOS.plist";
+			path = "AppleAppSupport/Info-tvOS.plist";
 			name = "Info-tvOS.plist";
 			sourceTree = SOURCE_ROOT;
 			lastKnownFileType = text.plist.xml;
@@ -377,11 +377,11 @@
 		CD9C4F82A86483622482B3A7 = {
 			isa = PBXGroup;
 			children = (
-				0CC4B75560B08000BEC6BBD2,
+				300EFC2A1E537591FC167F6C,
 				F7F0C31DE31CC939A711DB58,
 				DF128BB64B7990E5A2B5C857,
-				B952359E92786935E1D49A00,
-				6E52FED4A28A3E76B27004E0,
+				A36FFA2E8152242987F44736,
+				778E674058E0BA53E1BB75EB,
 				878A669C3F6AE6877DF6F2C8,
 			);
 			sourceTree = "<group>";

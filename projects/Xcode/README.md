@@ -4,7 +4,7 @@ Open **raylib_game.xcodeproj** directly in Xcode for a blank app. Its **raylib_g
 
 ## Bring a C game
 
-Replace `Game.c` with the game's `int main(void)` source. Keep the calls to `InitWindow()`, `WindowShouldClose()`, `BeginDrawing()`, `EndDrawing()`, and `CloseWindow()`. The source with `main` needs the existing per-file `-Dmain=RaylibGameMain` flag. Add any other C sources to the app target without that flag. Keep the two project bundles together and preserve their relative paths to `src` and `Shared`, or update those references in Xcode.
+Replace `Game.c` with the game's `int main(void)` source. Keep the calls to `InitWindow()`, `WindowShouldClose()`, `BeginDrawing()`, `EndDrawing()`, and `CloseWindow()`. The source with `main` needs the existing per-file `-Dmain=RaylibGameMain` flag. Add any other C sources to the app target without that flag. Keep the two project bundles together and preserve their relative paths to `src` and `AppleAppSupport`, or update those references in Xcode.
 
 The C entry point and OpenGL calls run on the same rendering thread. Keep graphics and raylib input calls on that thread. Each iteration should check `WindowShouldClose()` so the host can pause and stop the loop at a frame boundary. The project hosts one active raylib surface per process. SwiftUI manages the window and app lifecycle.
 
@@ -17,7 +17,7 @@ Add a folder named `resources` to the app's **Copy Bundle Resources** phase as a
 1. Add **raylib.xcodeproj** to your project navigator as a project reference.
 2. In your app target's **Build Phases**, add **RaylibAppleHost** and **raylib** under **Target Dependencies**, then add **libRaylibAppleHost.a** and **libraylib.a** under **Link Binary With Libraries**. The Apple raylib backend uses the host for windowing, input, and presentation.
 3. Add raylib's `src` directory to **Header Search Paths**. Copy the platform-specific **Other Linker Flags** and **Library Search Paths** from the **raylib_game** target so the app can link the Apple frameworks and Swift runtime it uses.
-4. For a C game with the provided SwiftUI host, add `Shared/Launch.c` to the app target and set `-Dmain=RaylibGameMain` on the game source that defines `main`. Use the template's platform-specific Info.plist settings for the same app lifecycle and device support.
+4. For a C game with the provided SwiftUI host, add `AppleAppSupport/Launch.c` to the app target and set `-Dmain=RaylibGameMain` on the game source that defines `main`. Use the template's platform-specific Info.plist settings for the same app lifecycle and device support.
 
 ## Examples and platform behavior
 

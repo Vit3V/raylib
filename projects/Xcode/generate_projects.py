@@ -219,7 +219,7 @@ class Project:
 
     def files(self):
         for shared in ("Info.plist", "Info-tvOS.plist"):
-            self.file(f"Shared/{shared}")
+            self.file(f"AppleAppSupport/{shared}")
         products = self.add("PBXGroup", "products", name="Products", children=self.products, sourceTree="<group>")
         root = self.add("PBXGroup", "main", children=[*self.references.values(), products], sourceTree="<group>")
         self.objects[self.root_id] = {
@@ -256,9 +256,9 @@ def library(project, name, custom=False):
 
 
 def host(project):
-    project.file("Shared/AppleGameHost.h")
-    return project.target("RaylibAppleHost", [("Shared/AppleGameHost.m", ""), ("Shared/ContentView.swift", "")], {
-        "SWIFT_OBJC_BRIDGING_HEADER": "$(SRCROOT)/Shared/AppleGameHost.h",
+    project.file("AppleAppSupport/AppleGameHost.h")
+    return project.target("RaylibAppleHost", [("AppleAppSupport/AppleGameHost.m", ""), ("AppleAppSupport/ContentView.swift", "")], {
+        "SWIFT_OBJC_BRIDGING_HEADER": "$(SRCROOT)/AppleAppSupport/AppleGameHost.h",
         "GCC_PREPROCESSOR_DEFINITIONS": ["$(inherited)", "GL_SILENCE_DEPRECATION", "GLES_SILENCE_DEPRECATION"],
         "SKIP_INSTALL": "YES",
     })
@@ -269,8 +269,8 @@ def application(project, name, source, libraries, resources=None, library_projec
     settings = {
         "PRODUCT_BUNDLE_IDENTIFIER": bundle_id,
         "GENERATE_INFOPLIST_FILE": "YES",
-        "INFOPLIST_FILE": "$(SRCROOT)/Shared/Info.plist",
-        "INFOPLIST_FILE[sdk=appletv*]": "$(SRCROOT)/Shared/Info-tvOS.plist",
+        "INFOPLIST_FILE": "$(SRCROOT)/AppleAppSupport/Info.plist",
+        "INFOPLIST_FILE[sdk=appletv*]": "$(SRCROOT)/AppleAppSupport/Info-tvOS.plist",
         "RAYLIB_UNAVAILABLE": "",
         "RAYLIB_EDITABLE_RESOURCES": "YES" if name == "shaders_hot_reloading" else "NO",
         "INFOPLIST_KEY_CFBundleDisplayName": name,
@@ -296,9 +296,9 @@ def application(project, name, source, libraries, resources=None, library_projec
         key = "RAYLIB_UNAVAILABLE"
         settings[key if sdk == "all" else f"{key}[sdk={sdk}*]"] = message
 
-    sources = [("Shared/Launch.c", "")]
+    sources = [("AppleAppSupport/Launch.c", "")]
     if name == "rlgl_standalone":
-        sources.extend([("Shared/StandaloneExample.c", ""), ("Shared/StandaloneGLFW.m", "-fno-objc-arc")])
+        sources.extend([("AppleAppSupport/StandaloneExample.c", ""), ("AppleAppSupport/StandaloneGLFW.m", "-fno-objc-arc")])
         settings["EXCLUDED_SOURCE_FILE_NAMES[sdk=macosx*]"] = "Launch.c"
     else:
         sources.append((source, "-Dmain=RaylibGameMain"))

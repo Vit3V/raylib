@@ -1,0 +1,95 @@
+name: Build raylib Swift package
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'Package.swift'
+      - 'projects/SwiftPackage/**'
+      - 'projects/Xcode/AppleAppSupport/**'
+      - 'src/**'
+      - '.github/workflows/build_swift_package.yml'
+  pull_request:
+    paths:
+      - 'Package.swift'
+      - 'projects/SwiftPackage/**'
+      - 'projects/Xcode/AppleAppSupport/**'
+      - 'src/**'
+      - '.github/workflows/build_swift_package.yml'
+
+permissions:
+  contents: read
+
+env:
+  SWIFT_VERSION: '6.4.2'
+  SMOKE_PACKAGE: projects/SwiftPackage/Smoke
+
+jobs:
+  desktop:
+    name: SwiftPM on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: tryswift/setup-swift@ce5fe39afee72fd792fabab6db8ec3005962daf7 # v1
+        with:
+          swift-version: ${{ env.SWIFT_VERSION }}
+          windows-minimal: 'true'
+      - name: Install Linux graphics dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgl-dev libgl1-mesa-dri libglx-mesa0 libx11-dev libxrandr-dev \
+            libxinerama-dev libxcursor-dev libxi-dev libxext-dev xvfb xauth
+      - name: Build the archive and run the consumer
+        run: |
+          swift build --product raylib
+          swift run --package-path "${{ env.SMOKE_PACKAGE }}" DesktopSmoke
+      - name: Render and close a window under Xvfb
+        if: runner.os == 'Linux'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: xvfb-run -a swift run --package-path "$SMOKE_PACKAGE" DesktopSmoke --window
+
+  android:
+    name: SwiftPM cross-build for Android
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: tryswift/setup-swift@ce5fe39afee72fd792fabab6db8ec3005962daf7 # v1
+        with:
+          swift-version: ${{ env.SWIFT_VERSION }}
+      - name: Install the matching Swift SDK and NDK
+        run: |
+          set -euo pipefail
+          sdk_id="swift-${SWIFT_VERSION}-RELEASE_android"
+          sdk_dir="$RUNNER_TEMP/swift-sdks"
+          bundle="$RUNNER_TEMP/$sdk_id.tar.gz"
+          mkdir -p "$sdk_dir"
+          curl --fail --location --retry 3 --output "$bundle" \
+            "https://download.swift.org/swift-${SWIFT_VERSION}-release/android-sdk/swift-${SWIFT_VERSION}-RELEASE/${sdk_id}.artifactbundle.tar.gz"
+          echo "4d6ad63ea74becd58e123ff58b1b48c3be5ec0db0dff0ea5abe37ac007dd3233  $bundle" | sha256sum -c
+          tar -xzf "$bundle" -C "$sdk_dir"
+          sdkmanager "ndk;30.0.16248370"
+          ANDROID_NDK_HOME="$ANDROID_HOME/ndk/30.0.16248370" \
+            bash "$sdk_dir/$sdk_id.artifactbundle/swift-android/scripts/setup-android-sdk.sh"
+          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/30.0.16248370" >> "$GITHUB_ENV"
+      - name: Build the archives and link the NativeActivity fixture
+        run: |
+          set -euo pipefail
+          sdk_id="swift-${SWIFT_VERSION}-RELEASE_android"
+          readelf="$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-readelf"
+          for arch in aarch64 x86_64; do
+            flags=(--swift-sdks-path "$RUNNER_TEMP/swift-sdks" --swift-sdk "$sdk_id" --triple "$arch-unknown-linux-android29")
+            swift build "${flags[@]}" --product raylib
+            swift build --package-path "$SMOKE_PACKAGE" "${flags[@]}" --product AndroidSmoke
+            bin_path=$(swift build --package-path "$SMOKE_PACKAGE" "${flags[@]}" --show-bin-path)
+            symbols=$("$readelf" --dyn-syms --wide "$bin_path/libAndroidSmoke.so")
+            echo "$symbols" | awk '$7 != "UND" && $8 == "ANativeActivity_onCreate" { found = 1 } END { exit !found }'
+            echo "$symbols" | awk '$7 == "UND" && $8 ~ /^(main|android_main|__real_fopen)(@|$)/ { bad = 1 } END { exit bad }'
+          done

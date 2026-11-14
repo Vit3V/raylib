@@ -1558,6 +1558,8 @@ static void SetupFramebuffer(int width, int height)
 // REF: https://developer.android.com/ndk/reference/group/asset
 __attribute__((visibility("default"))) FILE *__wrap_fopen(const char *fileName, const char *mode)
 {
+    if (platform.app == NULL) return __real_fopen(fileName, mode);
+
     FILE *file = NULL;
 
     // NOTE: AAsset provides access to read-only asset, write operations use regular fopen

@@ -1,6 +1,7 @@
+#if os(macOS) || os(iOS) || os(tvOS)
 import SwiftUI
 import UniformTypeIdentifiers
-import CRaylib.AppleHost
+import RaylibAppleBridge
 
 /// Starts the SwiftUI app and calls the game on its rendering thread.
 @MainActor
@@ -130,4 +131,5 @@ extension ContentView: UIViewControllerRepresentable {
         coordinator.stop()
     }
 }
+#endif
 #endif
